@@ -1,0 +1,3211 @@
+<poem>
+<nowiki>
+
+# You can place the script of your game in this file
+# cherry blossom petals.
+image sakura filmstrip = anim.Filmstrip("sakura.png", (20, 20), (2, 1), .10)
+image snowblossom = SnowBlossom("sakura filmstrip")
+
+
+# Declare images below this line, using the image statement.
+init:   
+    # tinted night
+    image nosstand = im.MatrixColor("o00.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image ncorstand = im.MatrixColor("c00.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image nlilstand = im.MatrixColor("l00.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image gerpup5 = im.MatrixColor("g07.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image gerpup3 = im.MatrixColor("g06c.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image gerpup4 = im.MatrixColor("g06d.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image ngerpup1 = im.MatrixColor("g06a.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image nosmad2 = im.MatrixColor("o14.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image nosmad1 = im.MatrixColor("o13.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image noswrites = im.MatrixColor("o03.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    image nosmile1 = im.MatrixColor("o01.png",
+                                         im.matrix.saturation(.5) * im.matrix.tint(.90, .75, 1.0))
+    
+    # Define some new transitions here.
+    $ aaa = Dissolve(0.1)    
+    $ flashbulb = Fade(0.2, 0.0, 0.8, color='#fff')
+    $ flashbulb2 = Fade(0.1, 0.0, 0.1, color='#fff')
+    $ flashbulb3 = Fade(0.1, 0.0, 0.1, color='#f60e14')
+    $ cup = Character('Corvus',
+                         color="#349164",
+                        what_slow_cps=40,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_xpos=400,
+                        window_ypos=147)
+    $ oup = Character('Os',
+                         color="#839134",
+                        what_slow_cps=30,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_xpos=400,
+                        window_ypos=147)
+    $ gup = Character('Puppy in heat',
+                         color="#605dd1",
+                        what_slow_cps=50,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_xpos=400,
+                        window_ypos=147)
+    $ gup2 = Character('Gervase',
+                         color="#605dd1",
+                        what_slow_cps=50,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_xpos=400,
+                        window_ypos=147)
+    # Use it in subtitle mode.
+    $ gsub = Character(None,
+                            what_size=28,
+                            what_outlines=[(3, "#605dd1", 2, 2), (3, "#605dd1", 0, 0)],
+                            what_layout="subtitle",
+                            what_xalign=0.5,
+                            what_text_align=0.5,
+                            window_background=None,
+                            window_yminimum=0,
+                            window_xfill=False,
+                            window_xalign=0.5)
+    $ csub = Character(None,
+                            what_size=28,
+                            what_outlines=[(3, "#2f5d3a", 2, 2), (3, "#349164", 0, 0)],
+                            what_layout="subtitle",
+                            what_xalign=0.5,
+                            what_text_align=0.5,
+                            window_background=None,
+                            window_yminimum=0,
+                            window_xfill=False,
+                            window_xalign=0.5)
+    $ osub = Character(None,
+                            what_size=28,
+                            what_outlines=[(3, "#547728", 2, 2), (3, "#91b611", 0, 0)],
+                            what_layout="subtitle",
+                            what_xalign=0.5,
+                            what_text_align=0.5,
+                            window_background=None,
+                            window_yminimum=0,
+                            window_xfill=False,
+                            window_xalign=0.5)
+    $ vsub = Character(None,
+                            what_size=28,
+                            what_outlines=[(3, "#801f1f", 2, 2), (3, "#d71717", 0, 0)],
+                            what_layout="subtitle",
+                            what_xalign=0.5,
+                            what_text_align=0.5,
+                            window_background=None,
+                            window_yminimum=0,
+                            window_xfill=False,
+                            window_xalign=0.5)
+    # Fanservice Mode
+    $ oq= Character('Os',
+                        color="#839134",
+                        what_slow_cps=30,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_left_padding=160,
+                        show_side_image=Image("frame_os.png", xalign=0.0, yalign=1.0))
+    $ cq= Character('Corvus',
+                        color="#349164",
+                        what_slow_cps=40,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_left_padding=160,
+                        show_side_image=Image("frame_corvus.png", xalign=0.0, yalign=1.0))
+    $ vq= Character('Vosges',
+                        color="#d6533d",
+                        what_slow_cps=20,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_left_padding=160,
+                        show_side_image=Image("frame_vosges.png", xalign=0.0, yalign=1.0))
+    $ gq= Character('Gervase',
+                        color="#605dd1",
+                        what_slow_cps=50,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_left_padding=160,
+                        show_side_image=Image("frame_gervase.png", xalign=0.0, yalign=1.0))
+    $ lq= Character('Lilja',
+                        color="#cd79e2",
+                        what_slow_cps=80,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"),
+                        window_left_padding=160,
+                        show_side_image=Image("frame_lilja.png", xalign=0.0, yalign=1.0))
+    
+image osstand= LiveComposite(
+        (300, 544),
+        (0, 0), "o00.png",
+        (99, 115), anim.SMAnimation("a",
+            anim.State("a", "o00a.png"),
+            anim.State("b", "o00b.png"),
+            anim.State("c", "o00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image oskstand= LiveComposite(
+        (300, 544),
+        (0, 0), "o05.png",
+        (99, 115), anim.SMAnimation("a",
+            anim.State("a", "o00a.png"),
+            anim.State("b", "o00b.png"),
+            anim.State("c", "o00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image corstand= LiveComposite(
+        (327, 490),
+        (0, 0), "c00.png",
+        (50, 177), anim.SMAnimation("a",
+            anim.State("a", "c00a.png"),
+            anim.State("b", "c00b.png"),
+            anim.State("c", "c00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image corstand2= LiveComposite(
+        (300, 544),
+        (0, 0), "c03.png",
+        (85, 174), anim.SMAnimation("a",
+            anim.State("a", "c03a.png"),
+            anim.State("b", "c03b.png"),
+            anim.State("c", "c03c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image corhstand= LiveComposite(
+        (349, 600),
+        (0, 0), "cor00.png",
+        (92, 96), anim.SMAnimation("a",
+            anim.State("a", "cor00a.png"),
+            anim.State("b", "cor00b.png"),
+            anim.State("c", "cor00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image vostand= LiveComposite(
+        (335, 489),
+        (0, 0), "v00.png",
+        (93, 131), anim.SMAnimation("a",
+            anim.State("a", "v00a.png"),
+            anim.State("b", "v00b.png"),
+            anim.State("c", "v00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image vostand2= LiveComposite(
+        (335, 489),
+        (0, 0), "v06.png",
+        (93, 131), anim.SMAnimation("a",
+            anim.State("a", "v00a.png"),
+            anim.State("b", "v00b.png"),
+            anim.State("c", "v00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image gerstand= LiveComposite(
+        (424, 600),
+        (0, 0), "g00.png",
+        (101, 140), anim.SMAnimation("a",
+            anim.State("a", "g00a.png"),
+            anim.State("b", "g00b.png"),
+            anim.State("c", "g00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image lilstand= LiveComposite(
+        (346, 609),
+        (0, 0), "l00.png",
+        (65, 75), anim.SMAnimation("a",
+            anim.State("a", "l00a.png"),
+            anim.State("b", "l00b.png"),
+            anim.State("c", "l00c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+image eccstand= LiveComposite(
+        (309, 606),
+        (0, 0), "e01.png",
+        (108, 307), anim.SMAnimation("a",
+            anim.State("a", "e01a.png"),
+            anim.State("b", "e01b.png"),
+            anim.State("c", "e01c.png"),
+            anim.Edge("a", 2.0, "a", prob=2),
+            anim.Edge("a", 0.06, "b"),
+            anim.Edge("b", 0.06, "c"),
+            anim.Edge("c", 0.14, "a"),
+        ),
+        )
+#ROUTES#
+image coroute1="cor_route01.png"
+image coroute1a="coroute1a.png"
+image coroute2="cor_route02.png"
+image coroute2a="cor_route02a.png"
+image coroute2b="cor_route02b.png"
+image corend="cor_route03.png"
+image vosroute1= LiveComposite(
+        (800, 600),
+        (0, 0), "vos_route01.png",
+        (0, 0), anim.SMAnimation("a",
+            anim.State("a", "vos_route01.png"),
+            anim.State("b", "vos_route02.png"),
+            anim.Edge("a", 0.3, "a", ),
+            anim.Edge("a", 0.09, "b"),
+            anim.Edge("b", 0.09, "a"),
+        ),
+        )
+image vosroute2="vos_route03.png"
+image vosgend="vos_route04a.png"
+image vosbend="vos_route04b.png"
+image geroute1="ger_route01.png"
+image geroute2="ger_route02.png"
+image geroute3="ger_route03.png"
+image gergend="ger_route04a.png"
+image gerbend="ger_route04b.png"
+image gbadend="ger_broute.png"
+image lbadend="lil_broute.png"
+image vbadend="vos_broute.png"
+
+image intro01="intro01.png"
+image intro02="intro02.png"
+image intro03="intro03.png"
+image intro04="intro04.png"
+image bg01="f01.png"
+image bg01a="f01a.png"
+image bg01b="f01b.png"
+image bg02="f02.png"
+image bg02a="f02a.png"
+image bg03="f03.png"
+image bg04="f04.png"
+image bg04a="f04a.png"
+image bg05="f05.png"
+image fs="fs.png"
+image fn01="fs01.png"
+image fn02="fs02.png"
+image fn03a="fs03a.png"
+image fn03b="fs03b.png"
+image fn03c="fs03c.png"
+image fn03d="fs03d.png"
+image fn04a="fs04a.png"
+image fn04b="fs04b.png"
+image fn04c="fs04c.png"
+image fn04d="fs04d.png"
+image fn04e="fs04e.png"
+image fn05="fs05.png"
+image fn06="fs06.png"
+image fn07="fs07.png"
+
+image osmile1="o01.png"
+image osmile2="o02.png"
+image oswrites="o03.png"
+image oswrites2="o03a.png"
+image oswis="o04.png"
+image osmad1="o13.png"
+image osmad2="o14.png"
+image osksmile="o06.png"
+image osksmile2="o07.png"
+image oskblush="o08.png"
+image oskhe="o09.png"
+image oskblush2="o10.png"
+image oskmad="o01.png"
+image oskble="o12.png"
+image osknife="o19.png"
+image osooo="o19a.png"
+image oshe="o19b.png"
+image osblussh="o19c.png"
+image oswut="o20.png"
+image oscry="o21.png"
+image osehh="o22.png"
+image osmad3="o11.png"
+image coros1="o15.png"
+image coros2="o16.png"
+image coros3="o18.png"
+image corblush="c06.png"
+image cormad2="c05.png"
+image corsur2="c07.png"
+image corsur="c04.png"
+image cormad="c01.png"
+image corblush2="c02.png"
+image corscared="c08.png"
+image corlaugh="c09.png"
+image corhshout="cor01.png"
+image corhsmile1="cor02.png"
+image corhsmile2="cor03.png"
+image corhsur="cor04.png"
+image corhblush="cor05.png"
+image corhblush2="cor06.png"
+image corhgah="cor07.png"
+image corhit="cor08.png"
+image corsad="c10.png"
+image corcrys="c11.png"
+image corhgasp="cor09.png"
+image vosmile="v05.png"
+image vosmad="v02.png"
+image vosmad2="v01.png"
+image vosblush="v03.png"
+image voswut="v04.png"
+image vosmad3="v07.png"
+image vosmile2="v08.png"
+image vosblush2="v09.png"
+image vosos1="v10.png"
+image vosos2="v11.png"
+image vosangry="v12.png"
+image vosaaa="v12a.png"
+image germad="g01.png"
+image gerlick="g02.png"
+image gerangry="g03.png"
+image gerblush="g04.png"
+image gerpup1="g06a.png"
+image gerpup2="g06b.png"
+image geros1="g08.png"
+image geros2="g09.png"
+image gerthink="g10.png"
+image gersmile="g11.png"
+image lilsmile="l01.png"
+image lilnstand="l02.png"
+image lilnsmile="l03.png"
+image lilbye="l04.png"
+image lilroute1="lil_route01.png"
+image lilroute2="lil_route02.png"
+image lilgend="lil_route03a.png"
+image lilbend="lil_route03b.png"
+image eccblush="e02.png"
+image eccmad="e03.png"
+image splash1="splash01.png"
+image splash2="splash02.png"
+image splash3="splash03.png"
+image splash4="splash04.png"
+image splash5="splash05.png"
+image scene1="scen01.png"
+image cr01="cr01.png"
+image cr01a="cr01a.png"
+image cr02="cr02.png"
+image cr03="cr03.png"
+image cr04="cr04.png"
+image cr05="cr05.png"
+image cr06="cr06.png"
+image junkbox ="cgmenu02.png"
+
+# Declare characters used by this game.
+
+define o = Character('Os', color="#839134",
+                        what_slow_cps=30,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define c = Character('Corvus', color="#349164",
+                        what_slow_cps=40,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define v = Character('Vosges', color="#d6533d",
+                        what_slow_cps=20,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define g = Character('Gervase', color="#605dd1",
+                        what_slow_cps=50,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define vo = Character('Kid that stinks', color="#d6533d",
+                        what_slow_cps=20,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define co = Character('Weird looking chicken', color="#349164",
+                        what_slow_cps=40,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define ge = Character('Puppy on heat', color="#605dd1",
+                        what_slow_cps=50,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define r = Character('dsadsa', color="879f8d",
+                        what_slow_cps=20,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define os = Character('???', color="#839134",
+                        what_slow_cps=30,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define oss = Character('Os', color="#839134",
+                        what_slow_cps=10,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define l = Character('Lilja', color="#cd79e2",
+                        what_slow_cps=80,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define ls = Character('WTF', color="#cd79e2",
+                        what_slow_cps=80,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+define e = Character('Ecchin', color="#25e3cf",
+                        what_slow_cps=70,
+                        what_outlines=[ (1, "#333333") ], ctc=anim.Blink("paw.png"))
+
+
+# Add the gallery to the main menu.
+$ config.main_menu.insert(2, ('Gallery', "gallery", "True"))
+
+# The entry point to the gallery code.
+label gallery:
+    python hide:
+
+        # Construct a new gallery object.
+        g = Gallery()
+
+        # The image used for locked buttons.
+        g.locked_button = "locked.png"
+
+        # The background of a locked image.
+        g.locked_background = "cgmenu02.png"
+
+        # Frames added over unlocked buttons, in hover and idle states.
+        g.hover_border = "overh.png"
+        g.idle_border = "over.png"
+
+        # An images used as the background of the various gallery pages.
+        g.background = "cgmenu01.png"
+
+        # Lay out the gallery images on the screen.
+        # These settings lay images out 3 across and 4 down.
+        # The upper left corner of the gird is at xpos 10, ypos 20.
+        # They expect button images to be 155x112 in size.
+        g.grid_layout((4, 3), (210, 38), (104, 122))
+
+        g.page("CG Scenes")
+
+        # Our first button is a picture of the beach.
+        g.button("thcg01.png")
+        g.unlock_image("vosroute1")
+        g.button("thcg04.png")
+        g.unlock_image("geroute1")
+        g.button("thcg07.png")
+        g.unlock_image("lilroute1")
+        g.button("thcg10.png")
+        g.unlock_image("coroute1")
+        
+        g.button("thcg03.png")
+        g.unlock_image("vosroute2") 
+        g.button("thcg06.png")
+        g.unlock_image("geroute3") 
+        g.button("thcg09.png")
+        g.unlock_image("lilroute2")
+        g.button("thcg12.png")
+        g.unlock_image("coroute2") 
+        
+        g.button("thcg02.png")
+        g.unlock_image("vbadend") 
+        g.button("thcg05.png")
+        g.unlock_image("gbadend")
+        g.button("thcg08.png")
+        g.unlock_image("lbadend")
+        g.button("thcg11.png")
+        g.unlock_image("coroute2a")
+        
+        
+        g.page("Backgrounds")
+        
+        g.button("thbg01.png")
+        g.unlock_image("bg01")
+        g.button("thbg02.png")
+        g.unlock_image("bg02")
+        g.button("thbg03.png")
+        g.unlock_image("bg03")
+        g.button("thbg04.png")
+        g.unlock_image("bg04")
+ 
+        # Now, show the gallery.
+        g.show()
+    return
+    
+
+# The game starts here.
+label splashscreen:
+    scene splash1 with aaa
+    pause 1
+    show splash2 with dissolve
+    pause 1
+    show splash3 with aaa
+    pause 2
+    hide splash2 with aaa
+    hide splash3  with aaa
+    show splash4 with dissolve
+    pause 1
+    show splash5 with aaa
+    pause 2
+    hide splash4 with aaa
+    hide splash5 with aaa
+    pause 2
+    return
+    
+label start:
+
+    $ has_visited_kitchen = False
+    $ has_visited_kitchen2 = False
+    $ has_visited_basement = False
+    $ has_visited_basement2 = False
+    $ has_visited_watchtower = False
+    $ has_visited_watchtower2 = False
+
+    $ vos_01 = False
+    $ ger_01 = False
+    
+    $ persistent.end_01
+    $ persistent.end_02
+    $ persistent.end_03
+    $ persistent.end_04
+    
+
+    $ corvus = 0
+    $ vosges = 0
+    $ gervase = 0
+    $ lilja = 0
+    
+    stop music fadeout 1.5
+    $ renpy.play('waterdrop1.wav')
+    scene intro01 with dissolve
+    pause 3
+    scene intro02 with dissolve
+    pause 5
+    scene intro03 with dissolve
+    pause 5
+    scene intro04 with dissolve
+    pause 3
+    
+    scene bg01 with dissolve
+
+    
+    r"Вырвавшись из объятий зачарованного кошмара, девушка очнулась."
+    window show
+    show osstand at left with dissolve
+    play music "intro_theme.ogg"
+    os"..."
+    r"Го-Госпожа Оз?"
+    o"..."
+    show corstand at right with dissolve
+    co"О Господи, спасибо! Вы живы! ЖИВЫ!"
+    o"..."
+    co"Эм? Минутку..."
+    o"..."
+    hide corstand with aaa
+    show corsur2 at right with aaa
+    $ renpy.play('fwaon1.wav')
+    with vpunch
+    co"Что за..."
+    $ renpy.play('fwaon2.wav')
+    with hpunch
+    co"ЧТО ТОРЧИТ ИЗ ВАШЕЙ ШЕИ?!"
+    o"..."
+    hide corsur2 with aaa
+    show corstand at right with aaa
+    co"Бог мой! Неужели вы теперь не можете говорить?!"
+    o"*кивок*"
+    co"Не сочтите за дерзость, я воспользуюсь заклинанием, которое позволит вам обращаться ко мне мысленно."
+    $ renpy.play('bukimi1.wav')
+    o"!"
+    co"Готово! Постарайтесь направить ваши мысли ко мне, моя госпожа."
+    co"..." 
+    hide corstand with aaa
+    show corsur2 at right with aaa
+    $ renpy.play('fwaon3.wav')
+    with vpunch
+    co"КАК ЖЕ ТАК?! Вы в самом деле не помните меня? Что за чертовщина?!"
+    o"..."
+    hide corsur2 with aaa
+    show corstand at right with aaa
+    co"О, моя госпожа, ваши слова, они ранят меня В САМОЕ СЕРДЦЕ. Ведь это я, ваш верный Корвус. Я служил вашей семье всю свою жизнь, с того самого дня, как родился. И это правда!"
+    o"..."
+    c"Я сам только что пришёл в себя и сбит с толку не меньше вашего, но..."
+    c"Если хорошенько осмотреться... *чиханье* ...это наводит на мысль, что мы основательно вздремнули. Наверно, это проделки мерзкого изменника: он наложил на нас какое-то заклятье!"
+    c"А кинжал в вашей шее, без сомнения, проклят. Из-за него и исчезли все ваши воспоминания. Какая жестокость, просто ужасающая жестокость!"
+    c"Поступок этого негодяя переходит все границы! Ваша нежнейшая фарфоровая кожа... *кхм* Я хотел сказать, как он посмел навредить вашей шее и вашему голосу!"
+    o"..."
+    c"Моя госпожа, позвольте, я помогу вам вспомнить."
+    c"Вам предстоит унаследовать трон Королевства Улла, самого прекрасного королевства на всем белом свете."
+    c"За время своего правления вы, благодаря вашим речам и, кхм... дисциплине, стремительно раздвинули наши границы. О, как обогатилась наша страна! Ваш отец, господин Скедл, так гордился вами! *хнык*"
+    c"Но ваша слава разожгла чью-то зависть."
+    c"В день вашего 17-летия вы отправились в эту башню, чтобы пленники развеяли вашу скуку. Я последовал за вами: вам нельзя было опаздывать на торжество в честь вашего дня рождения."
+    o"..."
+    c"Увы, усыпляющие чары поразили меня, как только я влетел в башню. Я даже не успел и мельком увидеть преступника."
+    c"Судя по кинжалу, торчащему из вашей шеи, изменник пытался убить вас!" 
+    c"О, я невероятно счастлив, что вы всё-таки выжили, Госпожа Оз! И ваш отец будет вне себя от радости, когда снова увидит вас!"
+    o"..."
+    c"Му-ха-ха, не стоит волноваться! Мы обязательно найдем виновника и заставим его вернуть ваши воспоминания!" 
+    o"..."
+    stop music fadeout 1.5
+    c"Я бы предложил сначала исследовать эту башню. Если остальные заснули, как и мы, то они тоже должны постепенно просыпаться."
+    o"*кивок*"
+    
+label firstmenu:
+    if has_visited_basement2 and has_visited_kitchen2 and has_visited_watchtower2:
+        jump room
+    else:
+        
+        play music"intro_theme.ogg"
+        menu:
+
+            "Пойти в подвал." if has_visited_basement2 == False:
+                if has_visited_basement == False:
+                    jump ba
+                else:
+                    jump ba2
+            
+            "Пойти на кухню." if has_visited_kitchen2 == False:
+                if has_visited_kitchen == False:
+                    jump ki
+                else: 
+                    jump ki2
+          
+            "Пойти на балкон." if has_visited_watchtower2 == False:
+                if has_visited_watchtower == False:
+                    jump wt
+                else:
+                    jump wt2
+
+                    
+                    
+label ba:
+    $ has_visited_basement = True
+    stop music fadeout 1.5
+    scene black with dissolve
+    $ renpy.play('mizu.wav')
+    pause 1
+    $ renpy.play('mizu2.wav')
+    pause 1
+    $ renpy.play('mizu.wav')
+    pause 1
+    $ renpy.play('mizu2.wav')
+    pause 1
+    window show dissolve
+    c"Смотрите под ноги, Госпожа Оз! Пол покрыт, эм... удобрениями."
+    o"!"
+    show bg02 with dissolve
+    c"Угх!"
+    c"Эти газы просто убивают меня!"
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    show vostand at right with dissolve
+    vo"Как тебе не стыдно, Корвус."
+    c"Ты!"
+    play music "vosges_theme.ogg"
+    vo"И чем я заслужил такую честь?"
+    show vosmile at right with aaa
+    hide vostand with aaa
+    c"Не слишком-то зазнавайся. Госпожа Оз просто осматривает свои владения после небольшого отдыха."
+    show voswut at right with aaa
+    hide vosmile with aaa
+    vo"Небольшого? Ты шутишь? Мы торчим здесь уже четыре года. Как крысы в мышеловке."
+    c"Че-четыре?! Откуда такая уверенность?"
+    show vostand at right with aaa
+    hide voswut with aaa
+    vo"Взгляните в это крошечное окошко."
+    vo"Присмотритесь к небосводу, и вы заметите маленькую зелёную звезду. Это Звезда Отваги."
+    vo"Она появляется в небе раз в 14 лет. Мне посчастливилось посчитать, сколько лет должно пройти до её следующего появления, прежде чем началась вся эта неразбериха."
+    c"Хм, не лишено смысла..."
+    o"..."
+    c"Прошу прощения, моя госпожа! Пред вами Вогез, волшебник этого замка. Ну, по крайней мере, он так считает..."
+    v"К чему всё это? Неужели у неё амнезия?"
+    v"Ха. Что ж, желаю хорошо повеселиться, пока будете выяснять, кто из нас изменник."
+    c"Что ты хочешь этим сказать!"
+    v"Тебе стоит быть внимательней к тому, что происходит вокруг тебя, Корвус, вместо того, чтобы истекать слюной от одного вида своей повелительницы."
+    hide corstand2 with aaa
+    show corblush at left with aaa
+    c"Да как ты смеешь!"
+    v"Похоже, мне придется прояснить настоящее положение дел: ни грамма понимания на ваших лицах."
+    show cormad2 at left with aaa
+    hide corblush with aaa
+    v"Четыре года назад в этой башне на Госпожу Оз было совершено покушение."
+    c"Откуда ты знаешь?"
+    v"В день её семнадцатилетия я получил подозрительную записку."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    c"И что в ней было сказано?"
+    v"Там говорилось о запланированном убийстве Госпожи Оз."
+    hide corstand2 with aaa
+    show corsur at left with aaa
+    c"НЕ МОЖЕТ БЫТЬ!"
+    v"Я был приглашен в качестве зрителя."
+    c"И ты даже не предупредил Госпожу Оз?! Подлый изменник!"
+    v"*пожал плечами* А ты ожидал другого?"
+    o"..."
+    hide corsur with aaa
+    show corstand2 at left with aaa
+    c"Что, госпожа? Ненавидит ли вас Вогез? Осмелюсь выразить свое мнение… Я бы не удивился, если покушение на вас — его рук дело. "
+    c"Никто не может пересечь барьер, окружающий башню, поэтому изменник — один из пленников."
+    o"..."
+    c"Ой, что вы, моя госпожа, вас это не касается!"
+    c"Как создатель барьера вы можете спокойно проходить сквозь него. Я попал сюда только потому, что непрестанно следовал за вами."
+    v"Как наивно с твоей стороны."
+    c"Какие еще мерзкие мысли посетили твою гниющую голову?"
+    v"Наличие барьера вовсе не гарантирует того, что преступник один из пленников."
+    v"Конечно, это мог быть я. А мог быть и Гервас."
+    c"А я о чем говорю!"
+    v"А также это мог быть... {w}ты."
+    show cormad2 at left with aaa
+    hide corstand2 with aaa
+    c"Да как ты смеешь меня обвинять, вонючий гриб! Во всем мире нет существа более преданного госпоже Оз, чем я! Нет!"
+    v"О, никто и не спорит."
+    o"..."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    c"Ненавижу ли {i}я{/i} вас?! Конечно же нет! Я отдал бы свою жизнь за вас!!!" 
+    o"..."
+    c"{i}Почему{/i} он ненавидит вас? Ну..."
+    v"Так значит, ты действительно ничего не помнишь. {w}Какая жалость."
+    show vosmile at right with aaa
+    hide vostand with aaa
+    v"Ты стерла с лица земли мой родной город и убила всех, кто был мне дорог."
+    c"А также заточила его в этом подвале, где ему пришлось пробираться сквозь толщи грязи и отходов, чтобы найти те книги, что вы соблаговолили оставить ему для чтения."
+    c"Что само по себе очень даже забавно, ведь некоторые из этих книг являются поддельными магическими томами, направленными но то, чтобы подпортить его знания."
+    show vosmad at right with aaa
+    v"Что?"
+    c"О, и шапка, что он носит, не даёт ему расти. Ему должно быть уже около двадцати, но его тело так и останется телом тринадцатилетнего подростка."
+    v"Быть того не может!.."
+    show vosmad2 at right with aaa
+    hide vosmad with aaa
+    c"Упс. Прости, ты все слышал?"
+    v"Проклятая ведьма!!! Никакие слова не способны выразить всей глубины моей ненависти по отношению к тебе!"
+    o"..."
+    c"Следи за своим грязным языком, Вогез! Моя госпожа плохо переносит твоё гнойное дыхание."
+    o"..."
+    menu:
+
+        "Погладить мальчика по голове.":
+        
+            jump pa
+            
+        "Я голодная...":
+        
+            jump hu
+
+label pa:
+    $ vosges += 2
+    window hide dissolve
+    show vosroute1 with dissolve
+    pause 2
+    scene bg02 with dissolve
+    window show dissolve
+    show osstand at left with aaa
+    show corsur at left with aaa
+    show voswut at right with aaa
+    v"Чт-т-то ты д-делаешь?!"
+    c"М-м-моя госпожааааа!"
+    c"Ты, паршивый мухомор! Будь благодарен, что госпожа Оз одарила своим божественным прикосновением ничтожную поганку вроде тебя!"
+    o"..."
+    c"!"
+    c"...она{w}говорит:{w} она {w}{size=8}просит{/size} {w}{size=5}прощения..{/size}"
+    v"Что?"
+    hide corsur with aaa
+    show corstand2 at left with aaa
+    c"Она извиняется! За всю боль, что причинила тебе..."
+    v"---"
+    show vosblush at right with aaa
+    hide voswut with aaa
+    v"У меня просто нет слов."
+    o"..."
+    v"Ты ведь понимаешь, что извинения — это пустые слова."
+    c"Гр, меня тошнит от твоей неблагодарности. Идёмте, моя госпожа."
+    o"*кивает*"
+    hide corstand2 with aaa
+    hide osstand with aaa
+    pause 2
+    v"...это всего лишь дурацкие извинения..."
+    v"...так... {w}почему?"
+    stop music fadeout 1.5
+    scene black with dissolve 
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Этот гнилой гриб...! Гр, как он меня раздражает!"
+    o"Почему вы сделали это, госпожа Оз?"
+    menu:
+
+        "Потому что он милый.":
+        
+            jump cuvo
+            
+        "Просто захотелось.":
+        
+            jump wut
+
+label cuvo:
+    $ vosges += 1
+    c"О-о чем выдумаете, моя госпожа?! {w}{color=#adc6ba}{i}Я проиграл какому-то жалкому мухомору...{/i}{/color}"
+    stop music fadeout 1.5
+    scene black with dissolve 
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    jump cho2
+    
+label hu:
+    stop music fadeout 1.5
+    $ renpy.play('Stomach Growls.mp3')
+    o"..."
+    c"..."
+    v"..."
+    v"Думаете, это смешно?"
+    v"Вон отсюда."
+    scene black with dissolve
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Гьяхаха, конечно же, вы голодны. Вы ведь проспали целых четыре года!"
+    o"*кивает*"
+    jump cho2
+label wut:
+    $ corvus += 1
+    c"Вы так добры, моя госпожа. Это трогает меня вплоть до самых кишок. *шмыг*"
+    jump cho2
+    
+label ba2:
+    $ has_visited_basement2 = True
+    stop music fadeout 1.5
+    scene black with aaa
+    scene bg02 with aaa
+    show vostand at right with aaa
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    c"Снова вы? Что вам надо?"
+    menu:
+
+        "Почему от тебя так плохо пахнет?":
+            jump stink
+            
+        "Просто мимо идем.":
+        
+            jump vpass
+
+label stink:
+    $ vosges -= 1
+    show vosmad2 at right with aaa
+    show corlaugh at left with aaa
+    hide corstand2 with aaa
+    c"Гьяхахахаха!"
+    v"Тебе еще не надоело издеваться надо мной?"
+    v"Эта вонючая шляпа, которую {i}ты{/i} заставила меня носить, не дает мне есть и пить нормальную пищу и мне приходится довольствоваться выращенными магическим путем... «удобрениями»."
+    show vostand at right with aaa
+    hide vosmad2 with aaa
+    v"А теперь уходите. Пожалуйста. С меня довольно всего этого."
+    hide corlaugh with aaa
+    show cormad at left with aaa
+    c"Мы и так уже уходим."
+    o"..."
+    hide osstand with aaa
+    hide cormad with aaa
+    scene black with dissolve
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    jump cho2
+    
+    
+label vpass:
+    v"Не слишком-то задерживайтесь."
+    v"Не хотел бы, чтобы у вас сложилось впечатление, будто вам тут рады."
+    c"..."
+    scene black with dissolve
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Впервые я с ним единого мнения." 
+    jump cho2
+    
+label cho2:
+    c"Что ж, куда направимся теперь?"
+    jump firstmenu
+    
+label ki:
+    $ has_visited_kitchen = True
+    stop music fadeout 1.5
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    o"..."
+    scene bg03 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Конечно! Позвольте мне найти что-нибудь, дабы утолить ваш голод. Это не займет больше минуты!"
+    hide corstand with aaa
+    o"..."
+    show gerpup1 at center with aaa
+    pause
+    c"Госпожа Оз! Здесь..." 
+    window hide dissolve
+    show corsur2 at right with aaa
+    cup"ЭТО ЕЩЕ ЧТО ТАКОЕ?!"
+    cup"Щенок?"
+    $ renpy.play('inu1.ogg')
+   
+    hide corsur2 with aaa
+    show corstand at right with dissolve
+    cup"Какой милый!"
+    hide gerpup1 with aaa
+    show gerpup2 at left with aaa
+    oup"..."
+    cup"ЧТО ТЫ..."
+    gup"Сиськи! Хочу потрогать, гав-гав!"
+    gup"Я был заперт тут целую вечность... Мне так одиноко, гав-гав!"
+    scene black with aaa
+    $ renpy.play('punch.wav')
+    with vpunch
+    $ renpy.play('punch3.mp3')
+    with hpunch
+    $ renpy.play('punch.wav')
+    with vpunch
+    r"Этот щенок принадлежит..."
+    
+    pause 1
+    play music "gervase_theme.ogg"
+    window show dissolve
+    scene bg03 with aaa
+    show osstand at left with aaa
+    show cormad2 at left with aaa
+    c"Не удивлён, что забыл про тебя, Гервас."
+    show gerstand at right with dissolve
+    c"Ты так отвратителен, что мой разум заблокировал все воспоминания о твоём ужасном существовании."
+    g"Клюв захлопнул."
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Да мне похеру, что ты обо мне думаешь."
+    c"Почему ты опять здесь? Ты должен охранять Вогеза и следить, чтобы он не наделал глупостей!"
+    g"Ага, конечно, пусть собака следить за пленниками и умирает от голода..."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    g"Я только что очнулся и пришел сюда в поисках съестного, но здесь ничего нет!"
+    show gerstand at right with aaa
+    hide germad with aaa
+    if has_visited_basement or has_visited_watchtower:
+        c"Ну, мы проспали в этой башне четыре года, вся еда, наверное, просто испарилась."
+        g"Четыре ГОДА?! Теперь понятно, почему у меня такое чувство, будто я уже сто лет не ел..."
+        jump nofood
+    else:
+        c"Похоже, вся еда просто испарилась. Должно быть, мы спали очень долго..."
+        jump nofood
+label nofood:
+    g"Оз! Сними барьер и выпусти нас отсюда! Если так продолжится, мы все помрём от голода!"
+    c"В данный момент госпожа Оз подвержена амнезии, так что..."
+    g"Погодь, чего?! Выходит, мы заперты здесь?"
+    c"Ох, Король, должно быть, ужасно волнуется!.. Я не хочу даже {i}думать{/i}о том, что происходило в Улле, пока моя госпожа спала..."
+    g"Ха, с этим дряхлым стариком на троне? Взгляни правде в глаза, пташка, Улла уже должна лежать в руинах к этому моменту."
+    hide corstand2 with aaa
+    show corsur at left with aaa
+    c"...в руинах?! Наша любимая Улла?!"
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Пфф! 'Наша'? Не смеши меня. Улла — это ад для любого, кроме этой сучки."
+    hide corsur with aaa
+    show cormad2 at left with aaa
+    c"Ты!!! Не смей говорить так и госпоже!"
+    o"..."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    c"Моя прекрасная госпожа, не стоит даже тратить время на этого грубияна. Его имя Гервас. В качестве наказания, вы приговорили его охранять пленников в этой башне."
+    g"Как будто это единственное наказание, которое она для меня устроила!"
+    g"Ей просто охереть как нравилось измываться надо мной. Да я её ночами в кошмарах вижу... {w}это её садистское выражение лица, когда она насиловала меня палкой!.."
+    o"..."
+    c"Ну, вы были строги лишь к тем, кто заслуживал этого. Гервас не раз пытался предать вас..."
+    show gerangry at right with aaa
+    hide germad with aaa
+    g"Да я ВРАГУ не пожелаю тех мук, через которые она заставила меня пройти! Так что отвали, Корвус! И ТЫ ТОЖЕ, СУКА! "
+    hide corstand2 with aaa
+    show cormad2 at left with aaa
+    c"Да как у тебя язык повернулся сказать нам такое?! Животное!"
+    g"ДА ТЫ САМ ЖИВОТНОЕ!"
+    c"Я хотя бы милый!"
+    g"Я МИЛЕЕ ТЕБЯ!"
+    c"От тебя несёт дерьмом!"
+    g"ТЫ ВЫГЛЯДИШЬ КАК ДЕРЬМО И, ГОТОВ ПОСПОРИТЬ, НА ВКУС ТОЖЕ ДЕРЬМО!"
+    c"...как... ты...!"
+    o"..."
+    r"Тело Герваса в ужасном состоянии." 
+    menu:
+
+        "Сменить его повязки." :
+        
+            jump ban
+            
+        "...я голодная...":
+        
+            jump hu2
+
+label ban:
+    $ gervase += 1
+    $ ger_01 = True
+    show geroute1 with dissolve
+    window hide dissolve
+    gsub"!!!!"
+    gsub"Не трогай меня!"
+    show geroute2 with dissolve
+    gsub"Ааахх..."
+    csub"М-моя госпожа! НЕЕЕЕЕЕЕТ!"
+    hide geroute1 with aaa
+    hide geroute2 with aaa
+    scene bg03 with dissolve
+    show osstand at left with aaa
+    show corsur at left with aaa
+    show gerblush at right with aaa
+    window show dissolve
+    c"*шмыг*"
+    g"Почему... почему ты это сделала?"
+    o"..."
+    c"Моя госпожа говорит: было похоже, что эти раны причиняли тебе сильную боль..."
+    show germad at right with aaa
+    hide gerblush with aaa
+    g"Пф! Теперь строишь из себя добрячку, а? Отвали, стерва! И не жди от меня благодарности."
+    hide corsur with aaa
+    show cormad at left with aaa
+    c"Как скажешь. Идёмте, моя госпожа."
+    o"..."
+    hide cormad with aaa
+    hide osstand with aaa
+    show gerstand at right with aaa
+    hide germad with aaa
+    g"...хмпф."
+    scene black with dissolve
+    pause 1
+    stop music fadeout 1.5
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Прошу вас, никогда больше так не делайте, животные, подобные Гервасу, не заслуживают вашего внимания..."
+    c"К тому же, он очень опасен."
+    menu:
+
+        "Возразить.":
+        
+            jump cant
+            
+        "Согласиться.":
+        
+            jump will
+    
+label cant:
+    $ gervase += 1
+    c"Хорошо. Хорошо! Просто... будьте осторожны! А я всегда прикрою ваш тыл..."
+    jump cho2
+label will:
+    $ corvus += 1
+    c"Обещаете?"
+    o"*кивает*"
+    c"Моя госпожа! Я так благодарен!"
+    jump cho2
+label hu2:
+    stop music fadeout 1.5
+    $ gervase -= 1
+    $ renpy.play('Stomach Growls.mp3')
+    o"..."
+    c"..."
+    g"..."
+    show gerstand at right with aaa
+    hide germad with aaa
+    g"С глаз моих долой."
+    scene black with aaa
+    scene bg01 with dissolve
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Госпожа, смотрите! Готов поспорить, это гнездо тарантулов за вашей спиной!" 
+    r"Оз поворачивается."
+    r"Одного за другим она вытаскивает пауков и закидывает себе в рот."
+    show osmile2 at left with aaa
+    hide osstand with aaa
+    c"А-а, моя госпожа, оставьте и мне немного!"
+    jump cho2
+    
+label ki2:
+    $ has_visited_kitchen2 = True
+    stop music fadeout 1.5
+    scene black with aaa
+    scene bg03 with aaa
+    show gerstand at right with aaa
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    g"Что вам надо?"
+    o"..."
+    menu:
+
+        "Просто мимо идем.":
+        
+            jump gpass
+            
+        "Перестало болеть так сильно?" if ger_01 == True:
+             jump groute01
+             
+label gpass:
+    $ gervase -= 1
+    g"Хмпф, тогда отвалите."
+    scene black with aaa
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show cormad at right with aaa
+    c"Безмозглое чудовище..."
+    hide cormad with aaa
+    show corstand at right with aaa
+    jump cho2
+    
+label groute01:
+    $ gervase += 2
+    show gerblush at right with aaa
+    g"...тебе что, действительно не все равно?"
+    o"*кивает*"
+    c"..."
+    g"Чуть-чуть слабее..."
+    g"Ну что, довольна?"
+    o"*кивает*"
+    g"Прекрасно, теперь исчезните."
+    hide corstand2 with aaa
+    hide osstand with aaa
+    scene black with dissolve
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Тьфу!"
+    jump cho2
+    
+label wt:
+    $ has_visited_watchtower = True
+    stop music fadeout 1.5
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 2
+    c"Госпожа, отсюда можно увидеть замок."
+    o"..."
+    c"В-вы боитесь высоты?!"
+    scene bg04 with flashbulb
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    show lilstand at right with aaa
+    c"..."
+    o"..."
+    ls"..."
+    c"Ты кто такой?"
+    c"{color=#adc6ba}{i}В жизни не видел этого парня...{/i}{/color}"
+    ls"Ты ждёшь, чтобы я тебе что-то объяснил? Почему бы не пораскинуть собственными мозгами? Ох, постой, или для твоих крошечных птичьих мозгов это непосильная задача?"
+    c"..."
+    ls"Ну чтож, если это все, что ты можешь сказать, тогда с дороги. Мне еще целую тонну книг надо к полудню расставить. Так что брысь, брысь!"
+    play music "lilja_theme.ogg"
+    c"{color=#adc6ba}{i}Да о чем этот парень говорит?! Здесь нет ни единой книги кроме той, что он держит в руках...{/i}{/color}"
+    ls"Что?"
+    c"{color=#adc6ba}{i}Мне стоит осторожнее подбирать слова... Мало ли, как этот сумасшедший может среагировать?{/i}{/color}"
+    c"Прошу прощения, сэр. Осмелюсь предположить, вы новый слуга?"
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    ls"ХАХАХАХХАААХААХАХАХХА. Слуга? Я? Ты не только тупой, но еще и слепой?"
+    show lilstand at right with aaa
+    hide lilsmile with aaa
+    ls"Мое имя Лилья. {w}Я — Бог."
+    hide corstand2 with aaa
+    show corsur at left with aaa
+    c"Что?!"
+    c"Если это шутка, то ей не достаёт юмора!"
+    l"Госпожа Оз прекрасно меня знает, она подтвердит, что все мои слова — правда. Хотя она и так очевидна. Одного лишь взгляда достаточно, чтобы понять, что я принадлежу {i}совершенно{/i} другому миру."
+    hide corsur with aaa
+    show corstand2 at left with aaa
+    c"Эмм, видите ли... в данный момент Госпожа Оз страдает амнезией. Кто-то пытался убить её и пронзил горло этим ножом."
+    l"Ну, нож я вижу, как и проклятье, окружающее его."
+    c"Правда? Так есть какой-то способ снять его?"
+    l"Сейчас посмотрю в книгах."
+    hide lilstand with aaa
+    c"{color=#adc6ba}{i}Но здесь нет никаких книг! Он просто машет руками в воздухе!{/i}{/color}"
+    c"..."
+    c"{color=#adc6ba}{i}Постойте-ка. Я как-то читал о невидимой библиотеке, которая доступна лишь Вечным. Неужели?..{/i}{/color}"
+    c"Госпожа, он действительно Бог? Вы можете хоть что-нибудь вспомнить о нем?"
+    o"..."
+    c"Ясно, значит нет... "
+    c"Это всё сильно сбило меня с толку."
+    c"Я не слишком-то религиозен, но видеть Бога своими собственными глазами... Это немного..."
+    show lilstand at center with aaa
+    with vpunch
+    l"Твои жалкие глазки не выдерживают? Знаю, я бесподобен."
+    hide corstand2 with aaa
+    show corscared at left with aaa
+    c"ГААААААААААХ!"
+    hide lilstand  with aaa
+    show lilsmile at right with aaa
+    l"Да! ДА! Продолжай! Я знаю, ты весь в возбуждении! Кричи! Кричи во всю глотку! Реви! Рви на себе волосы, славя меня!"
+    hide corscared with aaa
+    show corstand2 at left with aaa
+    c"..."
+    l"Что замолчал? Моя красота лишила тебя дара речи? АХАХАХАХАХАХАХАХАХАХАХАХА!"
+    hide corscared with aaa
+    show corstand2 at left with aaa
+    c"{color=#adc6ba}{i}Вот ведь странный тип...{/i}{/color} Нашли что-нибудь, мистер Лилья?"
+    hide lilsmile with aaa
+    show lilstand at right with aaa
+    l"Да. Если верить моим книгам, эти проклятые ножи были довольно модными около четырех лет назад."
+    l"Снять проклятье может лишь тот, кто его наложил."
+    c"Вот как."
+    l"Ни в коем случае не дайте вытащить кинжал другому человеку. Это мгновенно убьет её."
+    c"*глоть* То есть, если мы ошибемся в выборе виновного..."
+    l"Как я и сказал. Это убьет её."
+    c"*шмыг* Ну, значит нам просто надо быть предельно внимательными. Я так рад встретить в этом месте кого-то, кто не испытывает ненависти к моей госпоже."
+    l"...кто сказал, что я не испытываю к ней ненависти?"
+    c"А?"
+    l"Это она виновата, что я не правлю сейчас на небесах." 
+    l"Я был заперт здесь четыре года, пока вы спали, как младенцы. Я чуть не превратился в простого смертного, занимаясь чепухой целыми днями и старея с каждой секундой. {w}Это... {w}Это..."
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    l"ЭТО СВОДИТ МЕНЯ С УМА! ХАХАХАХАХАХАХА!"
+    c"Нгх..."
+    c"Идемте, моя госпожа!"
+    o"*кивает*"
+    scene black with dissolve
+    scene bg01 with aaa
+    stop music fadeout 1.5
+    show osstand at left with aaa
+    show corstand at right with aaa
+    c"Чёрт возьми! Этот парень просто псих! Болтает всякую чушь о Богах... пф!"
+    o"*кивает*"
+    c"Я рад, что вы согласны со мной, моя госпожа!"
+    jump cho2
+
+label wt2:
+  stop music fadeout 1.5
+  $ has_visited_watchtower2 = True
+  c"Моя госпожа, вы действительно хотите туда веруться?"
+  o"..." 
+  o"*качает головой*"
+  c"Так я и думал..."
+  jump cho2  
+  
+label room:
+    play music"intro_theme.ogg"
+    c"... {w}Постойте, моя госпожа!"
+    c"Нам стоит сделать паузу и обдумать всё, что мы узнали!"
+    o"*кивает*"
+    scene black with aaa
+    pause 1 
+    scene bg01 with dissolve
+    show osstand at left with aaa
+    show corstand at right with aaa
+    
+    c"Всё это очень тревожно, Госпожа Оз..."
+    c"Не считая нас, в этой башне три человека."
+    c"Каждый из них испытывает к вам ненависть, а значит, у каждого есть мотив для убийства."
+    c"В связи с вашей амнезией, вы не можете снять барьер, поэтому никто не может ни войти, ни выйти."
+    c"И самое главное: нож из вашей шеи должен вытащить тот, кто наложил проклятие."
+    c"Мы не можем допустить ошибку. Мы обязаны точно знать, кто изменник."
+    c"Ооох... вот ведь головная боль."
+    o"..."
+    c"Нам стоит продолжить их опрашивать..."
+    c"Начнем с Герваса. Он ведь все-таки как бы наш охранник."
+    o"..."
+    c"Э? Вы хотите пойти одна? Почему?"
+    o"..."
+    c"В-вы так считаете, моя госпожа? Я раздражаю?"
+    o"*кивает*"
+    hide corstand with aaa
+    show corcrys at right with aaa
+    c"*в слезах*"
+    c"Ну, у меня нет прав идти против вашей воли..."
+    hide corcrys with aaa
+    show corstand at right with aaa
+    c"Но всё же, ваш отец доверил мне вашу безопасность, поэтому, прошу вас, возьмите этот свисток."
+    o"...?"
+    c"Если вы попадете в беду, просто воспользуйтесь им, и я прилечу в мгновение ока!"
+    o"*кивает*"
+    c"Молю, будьте осторожны, госпожа Оз. А я буду ждать вас!"
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 2
+   
+label kitchen:
+    stop music fadeout 1.5
+    pause 1
+    scene bg03 with dissolve
+    show osstand at left with aaa
+    show gerpup1 at center with aaa
+    g"Опять ты... Я устал. Дай передохнуть, а?"
+    o"*качает головой*"
+    g"Когда ты уже заговоришь, наконец?"
+    r"Оз указывает на шею."
+    g"...{w}это еще что за херня?! Аргх, ладно... "
+    show gerstand at right with flashbulb
+    hide gerpup1 with aaa
+    g"Итак, что тебе надо?"
+    play music"gervase_theme.ogg"
+    show oswrites at left with aaa
+    hide osstand with aaa
+    r"Оз достает из кармана блокнот и пишет в нем что-то. Затем она протягивает его Гервасу."
+    show osstand at left with aaa
+    hide oswrites with aaa
+    g"Эй."
+    o"?"
+    show gerblush at right with aaa
+    hide gerstand with aaa
+    g"Думаешь, я умею читать?"
+    o"!"
+    show oswis at left with aaa
+    hide osstand with aaa
+    $ renpy.play('karasu1.mp3')
+    with hpunch
+    c"ЖУУУУУУУУУУУУУУУУУУУУУУУУУУУХ!"
+    g"А?"
+    show osstand at left with aaa
+    hide oswis with aaa
+    show cormad2 at left with aaa
+    c"Он снова распустил свои грязные лапы, моя гопожа?"
+    o"*качает головой*"
+    show gerstand at right with aaa
+    hide gerblush with aaa
+    c"А, он не умеет читать. Не то чтобы я удивлен. Он ведь {i}действительно{/i} пес, в конце концов."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    g"И я горд им быть..."
+    c"В любом случае. Мы пытаемся найти того, кто сотворил это с госпожой Оз. Это и тебе будет полезно, ведь именно из-за него она не может вспомнить, как выбраться отсюда."
+    g"То есть, я смогу покинуть это место, если найду виновного?"
+    c"Эм. Тут уж госпожа Оз будет решать."
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Ну тогда хрен вам. Я не собираюсь помогать, если не получу ничего взамен."
+    hide corstand2 with aaa
+    show cormad2 at left with aaa
+    c"Ах ты презренный..."
+    o"..."
+    hide cormad2 with aaa
+    show corstand2 at left with aaa
+    c"Гр! Госпожа Оз спрашивает, что ты хочешь взамен."
+    g"Вот это другой разговор! Посмотрим..."
+    show gerthink at right with aaa
+    hide germad with aaa
+    g"..."
+    pause 2
+    c"{color=#adc6ba}{i}Надеюсь, его голова не взорвется от перенапряжения...{/i}{/color}"
+    show germad at right with aaa
+    hide gerthink with aaa
+    g"Я знаю, что хочу!"
+    c"Быстро ты!"
+    show gerstand at right with aaa
+    hide germad with aaa
+    g"{size=11}Титьки{/size} {w}... много." 
+    c"...ты что, шутишь?"
+    g"...нет."
+    c"{color=#adc6ba}{i}ЧЕРТОВО СОЗДАНИЕ...{/i}{/color}"
+    c"У тебя что, стыда нет? Хотя бы сделай одолжение, попроси что-нибудь приличное..."
+    show gerlick at right with aaa
+    hide gerstand with aaa
+    g"Эмм... а как насчет кошечек? Я люблю кошечек."
+    c"..."
+    o"..."
+    c"Моя госпожа говорит, что угодно, лишь бы ты заткнулся."
+    show gersmile at right with aaa
+    hide gerlick with aaa
+    g"Замётано! Хахаха!"
+    c"*вздох* Ну, Гервас, мы рассчитываем на твоё сотрудничество, ведь ты следил за дверью."
+    c"Ты можешь сказать, не заходил ли сюда кто-нибудь подозрительный, перед тем как мы оказались заперты здесь? Что, конечно, мало вероятно, так как барьер госпожи Оз непроницаем."
+    show gerstand at right with aaa
+    hide gersmile with aaa
+    g"Никто, кроме вас двоих, не входил."
+    g"Хотя, Корвус, как раз-таки как ТЫ входил, я не видел..."
+    c"Я влетел!"
+    g"А. Ладно."
+    g"После того, как пришла Оз, я отправился на свой регулярный обход башни."
+    g"Вогез был, как обычно, в подвале, занимаясь своими магическими делами, но ничего опасного я в них не увидел. Потом я заглянул на кухню, которая была пуста.
+    Но затем, когда я пошел на третий этаж, случилось нечто странное..."
+    c"И?"
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Я не могу вспомнить, что случилось. Я внезапно перестал что-либо видеть и заснул, свалившись при этом с лестницы. Когда я очнулся, задница болела до чертиков."
+    c"Вот как..."
+    c"В конце концов, это была пустая трата времени."
+    show gerstand at right with aaa
+    hide germad with aaa
+    g"А чего ты ждал? Я лишь делал свою работу сторожевого пса."
+    c"И он из тебя вышел просто замечательный, потому как, в соответствии с твоей историей, в башне было четверо, включая тебя самого, а на самом деле — пятеро."
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Пятеро? Что ты мелешь?"
+    c"На балконе парень, по имени Лилья."
+    show gerstand at right with aaa
+    hide germad with aaa
+    g"Быть такого не может. Я был там всего несколько минут назад и там никого не было."
+    c"А? Может быть, он ушел куда-то?"
+    o"..."
+    c"Моя госпожа говорит, что мы услышали достаточно от тебя."
+    c"Мы скоро вернемся."
+    g"Ладно."
+    hide corstand2 with aaa
+    hide osstand with aaa
+    stop music fadeout 1.5
+    pause 1
+    g"Парень на балконе? Да о чем он говорит?"
+    show gerangry at right with aaa
+    hide gerstand with aaa
+    g"...нгх...!"
+    g"...моя голова..."
+    g"..."
+    show germad at right with aaa
+    hide gerangry with aaa
+    g"...а!"
+    
+    scene black with dissolve
+    scene bg01 with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa    
+    c"Думаете, Лилья переместился в какую-то другую часть башни?"
+    o"*пожимает печами*"
+    c"Что ж, думаю, теперь следует проведать Вогеза."
+    o"..."
+    c"Вы правы. Тогда я проверю балкон."
+    o"*кивает*"
+    c"Зовите, если я вам понадоблюсь!"
+    scene black with dissolve
+    pause 2
+    
+label base:
+    stop music fadeout 1.5
+    $ renpy.play('mizu.wav')
+    pause 1
+    $ renpy.play('mizu2.wav')
+    pause 1
+    $ renpy.play('mizu.wav')
+    pause 1
+    $ renpy.play('mizu2.wav')
+    pause 1
+    scene black with dissolve
+    pause 1
+    scene bg02 with aaa
+    show bg02a with aaa
+    show osstand at left with aaa
+    show vostand at right with aaa
+    o"..."
+    play music"vosges_theme.ogg"
+    v"В жизни у меня не было столько посещений за один день. Что тебе нужно на этот раз?"
+    o"..."
+    v"А где твоя тень? Без него мы не сможем общаться."
+    o"..."
+    show oswrites at left with aaa
+    hide osstand with aaa
+    r"Оз достает из кармана блокнот и что-то в нем пишет. Потом протягивает его Вогезу."
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"Такого я не ожидал."
+    v"Посмотрим... «Где ты прочитал о звезде?»"
+    show vosmile at right with aaa
+    hide vostand with aaa
+    v"Хмпф. У тебя действительно амнезия."
+    show vostand at right with aaa
+    hide vosmile with aaa
+    v"Я получил эту информацию из книги, что ты была так любезна оставить здесь..."
+    v"На каждой из них имеется штамп Большой Библиотеки Уллы. Даже на подделках..."
+    v"Не представляю, как тебе удалось её скопировать. Ты хорошо постаралась, чтобы я не смог отличить подделки от настоящих, да?"
+    o"..."
+    v"Не важно... это говорит о том, что ты просто выкинула все книги без разбора в эту гнойную клоаку."
+    v"Невероятно, как в королевстве, подобном Улле, чьи победы были достигнуты путем насилия и садизма, можно найти столько считавшихся утраченными знаний..."
+    v"Еще более невероятно то, как наплевательски ты отнеслась к этим сокровищам мирового наследия." 
+    o"..."
+    v"Еще вопросы?"
+    o"*кивает*"
+    show oswrites at left with aaa
+    hide osstand with aaa
+    r"Маленький ритуал бумаги и карандаша возобновляется."
+    show osstand at left with aaa
+    hide oswrites with aaa
+    show voswut at right with aaa
+    hide vostand with aaa
+    v"Ох. Записка."
+    v"Конечно же я говорил правду о записке. Пусть я тебя и презираю, Оз, но я не такой, как ты."
+    show vostand at right with aaa
+    hide voswut with aaa
+    v"Я не стал бы пытаться убить тебя, или втыкать эту штуку тебе в шею."
+    show osmile1 at left with aaa
+    hide osstand with aaa
+    o"..."
+    show vosblush at right with aaa
+    hide vostand with aaa
+    v"Почему... ты улыбаешься?"
+    show oswrites at left with aaa
+    hide osmile1 with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa    
+    show vosmad at right with aaa
+    hide vosblush with aaa
+    v"Потому что я хороший мальчик? Я уже давно вырос!"
+    show vostand at right with aaa
+    hide vosmad with aaa
+    v"Я считаю, что тот, кто вызывает сомнения... {w}это Корвус."
+    o"?"
+    v"Он мне кажется фальшивкой. Особенно, когда говорит, что отдал бы жизнь за тебя. В это очень сложно поверить, особенно принимая во внимание его... особенности..."
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"Ты действительно ему доверяешь? Если так, то почему его здесь нет?"
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"'Он ужасно раздражает, и когда он рядом, то портит всем вам настроение.'"
+    v"{color=#adc6ba}{i}...кажется, она не осознает, что это она портит нам настроение.{/i}{/color}"
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"Одолжение? А ты смелая, раз просишь врага об одолжении."
+    v"Но, должен признать, мне довольно любопытно. Так что говори."
+    menu:
+        
+        "Что я могу сделать для того, чтобы ты перестал меня так ненавидеть?":
+         jump vosroute2
+        
+        "Позвать Корвуса.":
+         jump coroute1
+         
+             
+label vosroute2:
+    $ vosges += 2
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"...?"
+    v"Ты серьезно?"
+    o"*кивает*"
+    v"Я ненавижу тебя, и с этим ничего не поделаешь. Очень эгоистично с твоей стороны думать, что это возможно."
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"Что сделает меня счастливым? Сложный вопрос."
+    show vosmile at right with aaa
+    hide vostand with aaa
+    v"Я понял, что даже если бы смог выбраться из Уллы и начать жизнь заново, в моей груди продолжала бы зиять дыра."
+    v"Я никогда не смогу оправиться от тех страданий, что ты причинила мне."
+    show vostand at right with aaa
+    hide vosmile with aaa
+    v"Поэтому мой ответ таков: Я был бы наполовину счастлив, если бы обрел свободу.."
+    o"..."
+    v"Я и правда не понимаю, чего ты добиваешься. Возможно, ты притворяешься, чтобы потом опять выставить меня посмешищем, как ты это делала всегда. Что ж, какое разочарование. Я устал от твоих игр."
+    o"*качает головой*"
+    v"Ты не притворяешься? Мне в это как-то трудно поверить, Оз."
+    v"Помнишь, как ты вырезала моих людей, всех до единого? Помнишь, на что была похожа моя деревня, перед тем, как ты её спалила голубым холодным огнем?"
+    o"..."
+    v"Я помню. Даже сейчас в своих снах я вижу каждый ручей, каждое поле, каждое отдельное лезвие острой мерцающей травы."
+    v"Я вырос в этой деревне. Я был там счастлив, хоть мои родители и заставляли меня работать до изнеможения. Наша деревне всегда находилась под гнётом королевства Улла, поэтому мы костьми ложились, лишь бы угодить твоим людям."
+    v"Впервые я увидел тебя, когда ты осматривала склад овощей. Ты казалась столь маленькой и хрупкой. Помню, ты даже спрашивала старейшин, не нуждаемся ли мы в чем-нибудь. Я подумал,{w} что ты была милой."
+    v"Конечно же, месяцы спустя, я понял, что ошибался. Глупо судить людей по внешности. А еще глупее с легкостью им доверять. Будучи ребенком я не могу этого понять, но теперь я знаю." 
+    v"Что есть люди, подобные тебе."
+    o"..."
+    v"Прошу, уйди."
+    o"*качает головой*"
+    show oswrites at left with aaa
+    hide osstand with aaa
+    o"*пишет*"
+    show osstand at left with aaa
+    hide oswrites with aaa
+    v"Я не буду больше ничего читать."
+    o"...{w}*кивает*"
+    hide osstand with aaa
+    v"Тебе больше не удастся обмануть меня..."
+    pause 1
+    stop music fadeout 1.5
+    scene black with dissolve
+    scene bg01a with aaa
+    show ncorstand at right with aaa
+    show nosstand at left with aaa
+    c"Моя госпожа, вы вернулись!"
+    c"От этого мухомора была какая-то польза?"
+    o"...*кивает*"
+    c"Ох. {color=#adc6ba}{i}Я хотел спросить... аргх!{/i}{/color}"
+    jump cho4
+    
+label coroute1:
+    $ corvus += 1
+    show oswis at left with aaa
+    hide osstand with aaa
+    $ renpy.play('karasu1.mp3')
+    with hpunch
+    v"Что..."
+    $ renpy.play('fall.wav')
+    c"{size=10}ммм{/size}{size=11}ммм{/size}{size=12}ммм{/size}ммммМОЯ ГОСПОЖА!!"
+    hide oswis with aaa
+    show osstand at left with aaa
+    c"Что это презренный гриб сделал с вами?!"
+    show cormad2 at left with aaa
+    v"Ничего я не сделал. Чего ты добиваешься, Оз?"
+    hide cormad2 with aaa
+    hide osstand with aaa
+    show oswrites2 at left with aaa
+    o"*пишет*"
+    hide oswrites2 with aaa
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    show voswut at right with aaa
+    hide vostand with aaa
+    v"Что? Это же просто смешно."
+    c"?"
+    show vostand at right with aaa
+    hide voswut with aaa
+    v"Она просит меня стать твоим другом..."
+    c"Моя госпожа, зачем?"
+    o"..."
+    c"Но..."
+    v"Ты не можешь заставить других людей делать все, что тебе в голову взбредет. Я не испытываю к Корвусу такой же ненависти, как к тебе, но он далеко не тот, с кем мне хотелось бы общаться."
+    hide corstand2 with aaa
+    hide osstand with aaa
+    show oswrites2 at left with aaa
+    o"*пишет*"
+    hide oswrites2 with aaa
+    show osstand at left with aaa
+    show corstand2 at left with aaa
+    show scene1 with dissolve
+    r"«Но вы оба хорошие мальчики»."
+    hide scene1 with aaa
+    c"..."
+    v"..."
+    c"Позвольте мне подумать над этим, моя госпожа. А сейчас, думаю, Вогезу нужно отдохнуть. Почему бы нам не вернуться в свою комнату?"
+    o"*кивает*"
+    hide osstand with aaa
+    hide corstand2 with aaa
+    show corstand at left with aaa
+    v"Постой, Корвус."
+    c"Да?"
+    v"Не пытайся обмануть меня. Я знаю, что ты делаешь все это лишь только чтобы доставить ей удовольствие..."
+    c"Ты не веришь моим словам? Я, может, и выгляжу как птица, но я такой же человек. Если я сказал, что подумаю над этим, значит так и сделаю."
+    c"И ещё. Даже если в это и сложно поверить... Я не ненавижу тебя, Вогез. Что я ненавижу, так это особое отношение Госпожи Оз к тебе."
+    v"О чем ты?"
+    c"Хех. Это ты у нас тут самый умный..."
+    v"Подожди, что ты..."
+    c"Уже поздно."
+    c"Ложись спать, мальчик."
+    hide corstand with aaa
+    v"Я уже не..."
+    v"..."
+    stop music fadeout 1.5
+    scene black with dissolve
+    scene bg01a with aaa
+    show nosstand at left with aaa
+    show ncorstand at right with aaa
+    o"..."
+    c"А, мы немного поболтали."
+    o"..." 
+    c"{color=#adc6ba}{i}Слова Вогеза частично правдивы. Я сказал это, чтобы сделать вас счастливой. Моя госпожа... почему вы так страстно желаете все исправить?{/i}{/color}"
+    c"{color=#adc6ba}{i}Словно... вас гложет чувство вины...{/i}{/color}"
+    o"...?"
+    c"Ох, прошу прощения. Я немного задумался..."
+    jump cho4
+    
+label cho4:   
+    c"Ах, точно! Я был на балконе, и этот странный тип всё ещё там!"
+    c"Я спросил, видел ли он Герваса, и он ответил, что видел лишь миленького щеночка, писающего на книги."
+    c"Возможно, Гервас не может видеть его?"
+    o"*пожимает плечами*"
+    c"Не думаю, что мы добьёмся чего-нибудь от Лильи, но больше нам некого допрашивать..."
+    o"*кивает*"
+    pause 1
+    gup2"Стоять!"
+    window hide
+    show ngerpup1 at right with aaa
+    cup"Гервас? Что ты здесь делаешь?"
+    show gerpup3 at right with aaa
+    hide ngerpup1
+    gup2"Захлопни клюв, обманщик."
+    gup2"Я только что вспомнил... что ты был с Оз в этой комнате! Все остальное еще как в тумане, но ты делал с ней нечто странное!" 
+    gup2"Ты изменник!"
+    cup"!!!"
+    cup"Остано..."
+    r"Гервас пытается укусить Корвуса."
+    $ ui.timer(1.0, ui.jumps("coroute2"))
+    menu:
+         "Остановить Герваса!":
+            jump geroute2
+
+label geroute2:
+    $ gervase += 1
+    scene black with dissolve
+    scene bg01a with aaa
+    show gerpup5 at center with vpunch
+    show ncorstand at right with aaa
+    g"Ааа!"
+    g"Ты, дрянь!"
+    g"Отпусти меня, чёрт возьми..."
+    c"Моя госпожа!"
+    g"Не вмешивайся, ты..."
+    hide ncorstand with flashbulb3
+    $ renpy.play('punch1.mp3')
+    with vpunch
+    c"Нгх!"
+    o"!!"
+    hide gerpup5 with flashbulb3
+    $ renpy.play('punch.wav')
+    with hpunch
+    show nosstand at left with aaa
+    show gerpup3 at right with aaa
+    pause 1
+    gup2"Снова ты за своё, Оз. Даже когда я стараюсь быть верным как ГРЁБАНЫЙ ПЕС, коим я и являюсь, ты всегда предаешь мое доверие."
+    gup2"Надеюсь, ты будешь страдать весь остаток своей жизни..."
+    o"..."
+    hide gerpup3 with aaa
+    pause 1
+    r"Корвус на полу без сознания."
+    o"..."
+    show nosmad2 at left with aaa
+    window hide dissolve
+    scene black with dissolve
+    pause 1
+    jump watch
+    
+label coroute2:
+    $ corvus += 1
+    scene black with aaa
+    $ renpy.play('punch3.mp3')
+    with hpunch
+    c"Нг..."
+    scene bg01a with dissolve
+    show nosstand at left with aaa
+    show gerpup3 at center with aaa
+    o"!!!"
+    r"Корвус резко падает на пол."
+    show nosmad2 at left with aaa
+    show coroute1a with aaa
+    pause 1
+    hide coroute1a with aaa
+    show gerpup4 at center with flashbulb2
+    hide gerpup3
+    gup2"{color=#adc6ba}{i}Этот взгляд! Она собирается побить меня-!{/i}{/color}"
+    gup2"Т-ты получишь то, что заслужила. Я пришел предупредить тебя, но ты слишком упрямая, чтобы слушать!"
+    hide gerpup4 with dissolve
+    hide nosmad2 with aaa
+    o"..."
+    pause 1
+    window hide dissolve
+    scene coroute1 with dissolve
+    csub"М-моя госпожа...Простите..."
+    csub"...меня..."
+    show bg01a with dissolve
+    hide coroute1 with aaa
+    show nosstand at center with aaa
+    window show dissolve
+    r"Корвус отрубается."
+    o"..."
+    pause 1
+    show nosmad1 at center with aaa
+    hide nosstand with aaa
+    o"Это я должна извиниться, Корвус."
+    scene black with dissolve
+    
+label watch:
+    r"Вы решили пойти на балкон..."
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    scene bg04a with aaa
+    show nlilstand at right with aaa
+    show nosstand at left with aaa
+    window show dissolve
+    l"..."
+    l"Мы снова встретились, госпожа Оз."
+    o"..."
+    l"Могу я спросить кое-что?"
+    o"*кивает*"
+    l"Что... вы находите интересного в жизни смертного?"
+    r"Оз достаёт блокнот и что-то пишет."
+    show noswrites at left with aaa
+    hide nosstand with aaa
+    o"*пишет*"
+    show nosstand at left with aaa
+    hide noswrites with aaa
+    l"Так ты не знаешь."
+    l"Это прекрасно, ведь мне плевать, что ты думаешь."
+    o"..."
+    l"Жизнь слишком коротка. Она настолько коротка, что мне не удастся реализовать ни единой мечты."
+    l"Наверное, для смертных жизнь действительно отстой."
+    l"Каждый раз, когда я просыпаюсь, то вспоминаю, что мне осталось жить на один день меньше. Это заставляет меня думать, что бы я ни делал, разницы не будет никакой."
+    l"Потому что в конце концов {w}я умру."
+    l"А после смерти не останется ничего. {w}Ни еды, ни книг... ни меня самого."
+    l"Ты можешь это представить? Мир без кого-то столь прекрасного?" 
+    l"Жинь для смертных точно отстой."
+    r"Лилья в глубокой депрессии..."
+    menu:
+        "Взбодрить его.":
+            jump lilroute1
+            
+        "Ничего не делать.":
+            jump room2
+            
+label lilroute1:
+    $ lilja += 4
+    window hide dissolve
+    show lilroute1 with dissolve
+    pause 5
+    scene bg04a with dissolve
+    show nlilstand at right with aaa
+    show nosstand at left with aaa
+    window show dissolve
+    l"Теперь ты меня жалеешь..."
+    l"Это мне за то, что я веду себя так не-круто..."
+    show noswrites at left with aaa
+    hide nosstand with aaa
+    o"*пишет*"
+    show nosstand at left with aaa
+    hide noswrites with aaa
+    l"О, нет-нет-нет. Прекрати."
+    l"Я знаю, что ты притворяешься."
+    o"..."
+    pause 1
+    show nosmile1 at left with aaa
+    hide nosstand with aaa
+    o"Ты знал?"
+    l"Я ведь не лгал, когда говорил, что прекрасно вижу проклятье."
+    l"Но увидел лишь смерть, окружающую нож. Не имеющую ничего общего с амнезией или немотой."
+    o"Ясно."
+    show nosstand at left with aaa
+    hide nosmile1 with aaa
+    o"Тем лучше. Я все равно была уже не в силах играть эту роль."
+    l"Зачем ты это делаешь?"
+    o"Потому что, как ты и сказал, жизнь смертных — отстой."
+    o"Я никак не могла принести в нее разнообразие. Жизнь жестока и коротка."
+    o"Она разрушает тебя..."
+    l"Ах, остановись. У меня даже голова разболелась..."
+    o"Прости."
+    l"Думаю, тебе пора идти. Уже поздно."
+    o"Ты будешь в порядке?"
+    l"Думаю, да."
+    scene black with aaa
+    l"Я ведь все-таки Бог. {w}Покровитель самоубийц..."
+    scene bg01a with dissolve
+    show nosstand at left with aaa
+    jump room3
+    
+label room2:
+    r"Оз решает, что лучше оставить его одного."
+    scene black with dissolve
+    scene bg01a with aaa
+    
+label  room3:
+    $ renpy.play('corsleep.ogg')
+    r"Корвус все еще отдыхает после стычки с Гервасом, и потихоньку Оз тоже засыпает."
+    r"Это был длинный день."
+    $ renpy.play('osigh.ogg')
+    scene black with dissolve
+    pause 2
+    scene bg01b with aaa
+    show osstand at left with aaa
+    show corstand at right with aaa
+    pause 1
+    c"Госпожа Оз..."
+    o"..."
+    c"Простите за вчерашнее... Г-Гервас не лгал. Мне стоит объясниться."
+    o"Все в порядке, Корвус. Я тебя слушаю."
+    hide corstand with aaa
+    show corsur2 at right with aaa
+    c"М-моя госпожа?! Вы можете..."
+    o"Да."
+    hide corsur2 with aaa
+    show corstand at right with aaa
+    c"С какого момента?"
+    o"Всегда. Я притворялась, что не могу говорить, потому что мне нужно было время..."
+    o"...время, чтобы переварить всю эту путаницу..."
+    pause 1
+    hide osstand with aaa
+    show osmad1 at left with aaa
+    o"Я сбита с толку, Корвус."
+    play music"oscorvus_theme.ogg"
+    o"Почему..."
+    o"Почему я все еще жива, Корвус?"
+    c"..."
+    hide corstand with aaa
+    show corsad at right with aaa
+    r"У Корвуса очень грустное выражение лица."
+    c"Так и ваша амнезия была ненастоящей?"
+    o"Прости..."
+    show osstand at left with aaa
+    hide osmad1
+    c"Я не могу поверить, моя госпожа. Вы казались такой сильной, такой сияющей..."
+    c"Как после всего вы могли попытаться совершить самоубийство? Если что-то печалило вас, вы могли бы рассказать...{w}мне."
+    hide corsad with aaa
+    show corstand at right with aaa
+    o"Всё было не так."
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    o"У меня было такое чувство, что всё и вся были против меня. И закончилось всё тем, что я пыталась разбить голову о стену."
+    o"А началось всё с тех пор, как здоровье отца ухудшилось."
+    o"Он скидывал все больше и больше ответственности на меня, пока я не оказалась на троне."
+    o"Знал ли ты, Корвус?.. Мне казалось, что я сидела на обломках своего детства."
+    o"Корона сдавливала мой череп, и разум внутри него."
+    hide osmad1 with aaa
+    show osmad3 at left with aaa
+    o"Моя грудь проваливалась с каждым вздохом. Но я должна была продолжать дышать. Я должна была отдать все свои силы ради отца, ради Уллы."
+    o"Так я и поступала. Продолжала дышать. Продолжала двигаться. Я сожгла все свои чувства, чтобы ослепить всех вокруг своим сиянием."
+    o"Почему Солнце такое яркое, Корвус? Потому что оно без сожалений поедает себя изнутри... и таким образом, является самым величественным созданием в небе."
+    c"Моя госпожа..."
+    hide osmad3 with aaa
+    show osmad1 at left with aaa
+    o"Я шла на войну за войной, убивая и грешников, и невинных."
+    o"Все эти годы ничего кроме костей и крови, и подо всем этим... {w}я."
+    o"..."
+    o"И тогда я решила..."
+    hide corstand with aaa
+    show corsad at right with aaa
+    c"Нет. Прошу, я не хочу больше ничего слушать."
+    o"..."
+    o"Так ты собираешься объясниться, Корвус?"
+    hide corsad with aaa
+    show corstand at right with aaa
+    c"...да."
+    pause 1
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    c"Когда в день своего семнадцатилетия вы исчезли, дворец обратился в хаос."
+    c"Я метался по нему в поисках вас..."
+    c"...пока не решил проверить свою комнату."
+    c"Там я нашел записку, в которой было сказано, чтобы я шел в башню и получил там свою награду. Там же был пропуск через барьер."
+    c"Я понял, что вы что-то задумали, но терялся в догадках, что именно."
+    c"Я не хотел звать кого-то еще, поэтому никому ничего не сказал и просто ушел."
+    c"Внизу был Гервас, поэтому я влетел через окно кухни и стал тихо искать вас..."
+    c"Наконец, я нашел вас на третьем этаже... {w}как раз в тот момент, когда вы пронзили ножом свою шею."
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    hide corstand with aaa
+    show corsad at right with aaa
+    c"Когда я приблизился к вам, ваши глаза уже уставились в потолок. Мертвые."
+    c"Госпожа Оз, вы возненавидете меня за то, что я сделал..."
+    c"Но прежде, чем я сознаюсь, позвольте сказать..."
+    c"Я не жалею о том, что сделал. И никогда не пожалею."
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    o"Я не могу судить о том, чего не знаю, так что говори."
+    c"Хорошо."
+    hide corsad with aaa
+    show corstand at right with aaa
+    c"Вы знаете, что это такое?"
+    o"Это что-то вроде молитвы."
+    c"Верно. Это молитва достаточно сильная, даже чтобы вернуть мертвого с того света. Но на все есть своя цена."
+    c"В тот день я молился о вашем воскрешении. Взамен мне нужно было забрать годы жизни у остальных."
+    c"Другими словами, вы живы благодаря тому, что я отнял по году жизни у тех, кто был в башне в тот момент."
+    hide corstand with aaa
+    show corsad at right with aaa
+    c"Четыре года мы были мертвы, сопровождая вас, пока вы не очнетесь. И оно сработало! Как только я вновь увидел вас живой,{w} я... {w}я..."
+    c"Когда вы сказали, что у вас амнезия, я подумал, что это к лучшему... что вы не вспомните ту тоску, что заставила вас сделать это..."
+    c"И я притворился, будто не ведаю, что произошло."
+    show osmad2 at left with aaa
+    hide osstand with aaa
+    o"Как ты мог?! Тебе было наплевать на то, что хотела я, или кто бы то ни было еще в башне?"
+    c"..."
+    hide corsad with aaa
+    show corstand at right with aaa
+    c"Да. Мне было плевать."
+    o"Почему?"
+    c"Я..."
+    c"Я эгоист. И я не жду, что вы или остальные простите меня."
+    hide osmad2 with aaa
+    show osmad3 at left with aaa
+    o"Корвус. Я хотела умереть. Разве ты не видел этого?"
+    c"Видел. Но я хочу знать... почему вы так милы со всеми в башне?"
+    hide osmad3 with aaa
+    show osstand at left with aaa
+    c"Вам понравилось быть такой?"
+    show oswut at left with aaa
+    o"!"
+    hide oswut with aaa
+    hide osstand with aaa
+    show osmad3 at left with aaa
+    o"Я чувствовала... столько вины."
+    show osmad1 at left with aaa
+    hide osmad3 with aaa
+    o"Но они все равно не прекратят ненавидеть меня. Я разрушила их жизни и мне нет прощения."
+    c"Госпожа Оз, почему бы не воспринять это как второй шанс? Смерть не принесет счастья, но как насчет изменений в самом сердце?"
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    o"Это невозможно"
+    c"Не обязательно."
+    pause 1
+    hide corstand with aaa
+    show cormad at right with aaa
+    c"Черт возьми, Оз, не каждый день возвращаешься к жизни."
+    o"Корвус..."
+    o"Ты тоже ненавидешь меня?"
+    hide  cormad with aaa
+    show corstand at right with aaa
+    c"Э? С чего бы мне..."
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    o"Потому что мой отец убил всю твою семью."
+    hide corstand with aaa
+    show corsad at right with aaa
+    c"..."
+    o"Он сделал тебя своим рабом, в то время как ты был наследником Теры — страны прекрасной и могущественной, подобно Улле."
+    o"И мой отец уничтожил её. Всё и всех, кого ты любил. Так же, как я поступила с Вогезом."
+    o"Я не понимаю. Почему ты не испытываешь ко мне ненависти?"
+    hide corsad with aaa
+    show corstand at right with aaa
+    c"А вы этого хотите?"
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    o"...нет..."
+    c"Тогда почему задаете подобный вопрос?"
+    c"Пообещайте мне, что подумаете над этим."
+    o"Ладно."
+    c"Тогда я оставлю вас одну. Мне следует навестить Лилью и Вогеза, чтобы сознаться в своем грехе... Гервас, должно быть, все еще зол на меня."
+    o"..."
+    stop music fadeout 1.5
+    show osooo at left with aaa
+    o"Корвус!.."
+    c"Ммм?"
+    menu:
+        "Простить его.":
+          jump coroute3
+        "Ничего не сказать.":
+            jump lilroute2
+    
+    
+label coroute3:
+    $ corvus += 1
+    $ vosges -= 2
+    o"Я...я не могу говорить за всех, но..."
+    hide osooo with aaa
+    o"Я прощаю тебя за то, что ты сделал."
+    c"..."
+    c"Я не достоин этого."
+    o"Конечно не достоин."
+    c"Ааа?"
+    hide osstand with aaa
+    show oshe at left with aaa
+    o"Шучу. Ахаха... ха..."
+    r"Тишина."
+    pause 1
+    hide oshe with aaa
+    show osmile1 at left with aaa
+    o"Спасибо тебе, Корвус."
+    hide corstand with aaa
+    show corblush2 at right with aaa
+    c"{color=#adc6ba}{i}Я... Я... Я не знаю, что сказать...{/i}{/color}"
+    c"Д-да не за что!"
+    hide corblush2 with aaa
+    r"Корвус покидает комнату с покрасневшим лицом."
+    scene black with dissolve
+    c"Мать, отец..."
+    c"Прошу, простите меня..."
+    c"В конце концов, я просто жалкий сын."
+    c"Кажется... я действительно люблю ее."
+    pause 1
+    jump end
+        
+label lilroute2:
+    $ gervase -= 4
+    hide osooo with aaa
+    o"..."
+    c"..."
+    c"Подумайте над этим, прошу."
+    hide corstand with aaa
+    r"Корвус покидает комнату с грустным выражением лица."
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    o"..."
+    pause 1
+    l"Так вот почему... я стал смертным."
+    show lilstand at right with aaa
+    o"Ты подслушивал, Лилья?"
+    l"Непроизвольно."
+    l"Значит, во всем виновата эта пташка, да?"
+    o"Во всем виновата я."
+    o"Я не хотела вовлекать тебя в это... мне жаль..."
+    l"От твоих извинений ни холодно, ни жарко."
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    l"Это {i}действительно{/i} по большей части твоя вина, ты это понимаешь? Ты не должна была по быстрому убивать себя, вместо того чтобы молить меня даровать тебе сил."
+    l"У меня не было выбора, кроме как спуститься на землю и дать тебе благословение на успех."
+    l"И в конце концов я поплатился за то, что был слишком хорошим покровителем."
+    l"Мне следовало послушаться своих коллег. Честная работа не подходит Богу."
+    o"..."
+    l"Прими ответственность за весь этот беспорядок!"
+    o"Как?"
+    l"Верни мне мои годы жизни, чтобы я хотя бы смог вернуться на небо."
+    show osmad1 at left with aaa
+    o"С радостью."
+    l"Правда?"
+    menu: 
+        "Да, мне теперь все равно...":
+           jump sad
+        "Честно говоря... я не могу.":
+            jump lilroute3
+            
+label sad:
+    $ lilja -= 4
+    o"Мне все равно. Забирай все, что хочешь."
+    l"..."
+    l"Какая же ты скучная, смертная."
+    l"Почему бы тебе уже не покончить с жизнью, выпрыгнув из окна."
+    hide lilstand with aaa
+    o"..."
+    scene black with dissolve
+    pause 1
+    jump end
+    
+label lilroute3:
+    $ lilja += 1
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    o"Нет. Я не хочу."
+    l"И почему же?"
+    o"Потому что жизнь коротка, и если уж я должна умереть, то сначала собираюсь насладиться каждым годом, что у меня есть."
+    l"..."
+    l"Какая же ты скучная, смертная."
+    show osmad2 at left with aaa
+    hide osstand with aaa
+    l"Почему бы тебе уже не покончить с жизнью, выпрыгнув из окна."
+    o"Почему бы тебе не выброситься самому."
+    o"Все, что ты делаешь, это жалуешься на то, как отстойно быть смертным."
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    l"ХАХАХАХАХАХАХАХА! Мне это нравится!"
+    show lilstand at right with aaa
+    hide lilsmile with aaa
+    hide osmad2 with aaa
+    show osstand at left with aaa
+    show oswut at left with aaa
+    o"А?"
+    l"Меня достало быть покровителем самоубийц. Помогать людям убивать себя — угнетает."
+    l"Но ты другая. Мне нравится твоя сила воли."
+    l"Готов поспорить, ты очень вкусная."
+    hide oswut with aaa
+    o"Ты стрёмный."
+    l"Ты и твоя пташка сделали меня таким. А был я абсолютно нормальным."
+    o"Должен быть способ... вернуться на небо."
+    l"Я на это очень надеюсь."
+    l"Что ж. Мне нужно пойти прибраться в библиотеке. Книги воняют мочой."
+    show osmile2 at left with aaa
+    hide osstand with aaa
+    o"*посмеивается*"
+    l"Кстати, госпожа Оз..."
+    show osmile1 at left with aaa
+    hide osmile2 with aaa
+    o"Ммм?"
+    l"У тебя прелестный голос."
+    show oswut at left with aaa
+    o"А?.."
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    l"АХАХАХАХАХАХАХА."
+    show osstand at left with aaa
+    o"..."
+    scene black with dissolve
+    pause 1
+    jump end
+    
+label end:
+    scene black with dissolve
+    play music"oscorvus_theme.ogg"
+    r"Солнце плывет к зениту. Оз погружена в свои мысли."
+    pause 2
+    scene bg01 with dissolve
+    show osstand at left with aaa
+    c"Моя госпожа, я нашел для вас немного сочных тараканов!"
+    show corstand at right with aaa
+    o"Корвус."
+    c"Д-да?"
+    o"Я сняла барьер."
+    c"Это значит..."
+    show osmile1 at left with aaa
+    hide osstand with aaa
+    o"Мы уходим. Мы все наконец-то свободны." 
+    show osstand at left with aaa
+    hide osmile1 with aaa
+    o"Ты прав, Корвус. Смерть ничего не решает."
+    o"Я вытащу этот нож и сниму проклятье, что наложила на себя сама."
+    o"С этого момента я собираюсь взяться за всё, что бросила, и посмотреть, что из этого выйдет."
+    hide corstand with aaa
+    show corcrys at right with aaa
+    c"Моя госпожа!.. Вы даже представить себе не можете, каким счастливым меня делают ваши сллова!"
+    c"Я пойду расскажу всем счастливые новости!"
+    o"Постой."
+    hide corcrys with aaa
+    show corstand at right with aaa
+    c"Да, моя госпожа?"
+    o"Прежде, я хочу..."
+    menu:
+        "...посмотреть на грибы в подвале.":
+            jump vosroutefinal
+        "...съесть что-нибудь на кухне.":
+          jump geroutefinal
+        "...полюбоваться закатом на балконе.":
+          jump lilroutefinal
+        "...сказать тебе кое-что." if corvus == 5:
+           jump coroutefinal 
+           
+label vosroutefinal:
+        if vosges == 5:
+           jump vosgood
+        else:
+           jump vosbad
+label vosgood:
+    $ persistent.end_01 = True
+    $ persistent.ending = "Ending 1"
+    o"Думаю, я пойду, посмотрю на грибы в подвале..."
+    c"Грибы? Ох."
+    c"Вы о... Вогезе?"
+    o"Что? Н-нет..."
+    c"Ах. Ахахаха. А он счастливчик."
+    o"Ммм?"
+    c"Ничего, моя госпожа. Тогда, я подожду вас здесь."
+    o"Хорошо."
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    r"Корвус наблюдает, как Оз исчезает в подвале. Что-то сверкнуло в уголке его глаза."
+    c"...это к лучшему."
+    pause 1
+    stop music fadeout 1.5
+    scene black with dissolve
+    scene bg02 with aaa
+    show vostand at right with aaa
+    show osstand at left with aaa
+    v"Ох, опять ты."
+    o"..."
+    show osooo at left with aaa
+    o"Возрадуйся, пленник башни, что бдит сторожевой пес, потому что ты получишь свою награду..."
+    show voswut at right with aaa
+    v"!!"
+    hide osooo with aaa
+    v"Ты!.."
+    show osooo at left with aaa
+    o"...возможность пережить ведьму. Сегодня она умрет, с рассеченным горлом, залив богомерзкой кровью землю."
+    hide osooo with aaa
+    o"Так гласила записка, да?"
+    v"Ты была тем, кто написал ее?"
+    v"Почему?.."
+    hide osstand with aaa
+    show osknife at left with dissolve
+    o"Потому что я истинный изменник Уллы."
+    play music"v_end.ogg"
+    scene black with aaa
+    $ renpy.play('swordhit.wav')
+    pause 0.1
+    scene bg02 with dissolve
+    show snowblossom
+    show oskstand at left with aaa
+    show vostand at right with aaa
+    show vosaaa at right with aaa
+    v"А!"
+    o"В тот день я вонзила нож в собственную шею. У меня больше не было желания жить."
+    show vosangry at right with aaa
+    hide vosaaa with aaa
+    v"Ты ужасно эгоистична, Оз. Эгоистична..."
+    hide vosangry with aaa
+    v"...и глупа."
+    v"Чего ты ждала от меня? Что я буду наслаждаться, взирая на твое мертвое тело?"
+    o"..."
+    v"Съем твои внутренности? Растворю твой труп в серной кислоте? Я не понимаю."
+    v"Я не понимаю..."
+    o"Вогез..."
+    show vosangry  at right with aaa
+    hide vostand with aaa
+    v"Заткнись! Я презираю людей, подобных тебе! Ты просто убежала вместо того, что посмотреть в лицо всем ужасам, что сделала с нами."
+    v"Твоя смерть не принесла бы мне счастья. Она лишь разбудила бы во мне еще больший гнев."
+    v"Как просто умереть и послать всех в ад."
+    v"Но это же в порядке вещей, так? С нами и так уже все кончено..."
+    o"Это неправда."
+    window hide aaa
+    hide vosangry with aaa
+    hide oskstand with aaa
+    scene vosroute2 with dissolve
+    osub"Я могу стараться изо всех сил, чтобы изменить это."
+    vsub"Прекрати.."
+    vsub"...это..."
+    osub"Теперь ты свободен, Вогез."
+    scene bg02 with dissolve
+    hide vosroute2 
+    show snowblossom
+    show oskstand at left with aaa
+    show vostand2 at right with aaa
+    show vosaaa at right with aaa
+    o"Ты волен делать что захочешь."
+    o"Тогда ты сказал мне, что это сделает тебя наполовину счастливым..."
+    o"Я не ищу твоего прощения, потому что знаю, что никогда его не получу."
+    o"Вместо этого, позволь мне сделать тебя хоть немного счастливее."
+    hide vosaaa with aaa
+    v"..."
+    v"Не делай этого. Ты прекрасно знаешь, что я ничем не лучше тебя."
+    v"После этой отвратительной записки, я вышел из подвала в надежде увидеть твою смерть собственными глазами."
+    v"Но я дошел только до первого этажа, прежде чем вернулся обратно."
+    v"Наверное, я просто трус."
+    o"Ты хороший мальчик, Вогез. Не будь с собой так суров."
+    v"Я не ребенок, Оз. И ты это знаешь."
+    pause 0.1
+    r"Тишина."
+    v"Так что ты будешь делать?"
+    o"Мой отец, должно быть волнуется. Я должна вернуться к нему."
+    v"Ты снова станешь собой?"
+    stop music fadeout 1.8
+    o"Я знаю, что я только-только освободила тебя, но... почему бы тебе не пойти со мной, Вогез?"
+    o"Рядом с тобой я точно не стану такой, как была."
+    v"..."
+    pause 2
+    show oswut at left with aaa
+    o"Н-не волнуйся, тебе не нужно отвечать."
+    v"Я подумаю над этим, но ничего не обещаю."
+    show osksmile at left with aaa
+    hide oswut with aaa
+    o"Мне хватит и этого."
+    hide vostand2 with aaa
+    show vosmile2 at right with aaa
+    v"..."
+    hide osksmile with aaa
+    o"Что-то не так?"
+    v"Нет... "
+    v"Я просто чувствую себя намного..."
+    scene black with dissolve
+    v"...легче."
+    window hide dissolve
+    pause 2
+    play music "g_end.ogg"
+    scene vosgend with dissolve
+    pause 5
+    jump lolcredits
+    
+label vosbad:
+    o"Думаю, я пойду, посмотрю на грибы в подвале..."
+    c"Грибы? Ох."
+    c"Ты имеешь в виду Вогеза?"
+    show oswut at left with aaa
+    o"Что? Н-нет..."
+    c"Ах. Ахахаха. А он счастливчик."
+    hide oswut with aaa
+    o"Ммм?"
+    c"Ничего, моя госпожа. Тогда я подожду вас здесь."
+    o"Хорошо."
+    hide osstand with aaa
+    pause 1
+    c"...это к лучшему."
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    scene bg02 with aaa
+    show vostand at right with aaa
+    show osstand at left with aaa
+    v"Ох, опять ты..."
+    o"..."
+    v"Корвус приходил и известил меня о том, какой же он имбицил."
+    v"Выходит, ты жива благодаря нам."
+    v"Жизнь действительно полна иронии."
+    o"Как много он рассказал тебе?"
+    v"Так ты и говорить теперь можешь?"
+    o"..."
+    v"Он сказал мне, что нашел тебя мертвой, и дабы защитить тебя, он воззвал к богам, использовав наши жизни в качестве жертвы."
+    v"Чего я не могу понять, так это кто пытался убить тебя. Это был Гервас, да?"
+    o"Это была я."
+    show voswut at right with aaa
+    hide vostand with aaa
+    v"А?"
+    o"Я вонзила нож в свою собственную шею. Я хотела умереть."
+    v"..."
+    show vosangry at right with aaa
+    hide voswut with aaa
+    v"Ты невероятна."
+    v"Так это ты послала мне записку?"
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    o"Да."
+    o"Я хотела, чтобы ты был там. Я знала, что твоей ненависти было бы достаточно, чтобы закончить дело, если бы я провалилась."
+    v"..."
+    o"Вогез, я..."
+    show osstand at left with aaa
+    hide osmad1 with aaa
+    v"Я не хочу ничего слышать. С каждым разом, как я тебя вижу, мне все труднее сдерживаться, чтобы не ударить тебя."
+    o"Я никуда не уйду."
+    v"Ты просто жалкая трусиха, которая совершают одну ошибку за другой..." 
+    pause 1
+    show osmad2 at left with aaa
+    hide osstand with aaa
+    o"Думаешь, ты лучше меня?"
+    o"Продолжай изображать из себя жертву, сколько влезет. Ты лишь слепой глупец!"
+    v"Как ты смеешь..."
+    scene vbadend with dissolve
+    window hide
+    osub"Думаешь, я убивала всех твоих людей ради забавы?"
+    osub"Я потеряла половину войска в тот день! И все они были отравлены... {w}овощами, что твои люди прислали нам. Они были предателями!"
+    osub"Они заслужили это! Быть сожженными дотла и съеденными червями... {i}все они{/i}."
+    scene bg02 with aaa
+    show vosos1 at center with flashbulb3
+    $ renpy.play('swordhit.wav')
+    stop music fadeout 1.5
+    v"!!!"
+    window show 
+    o"Ах..."
+    show vosos2 at center with dissolve
+    hide vosos1 with aaa
+    v"Просто... умри."
+    oss"Я никогда не пожалею..."
+    scene black with dissolve
+    window hide dissolve
+    pause 2
+    play music "b_end.ogg"
+    scene vosbend with dissolve
+    pause 5
+    jump lolcredits
+    
+label geroutefinal:
+         if gervase == 5:
+           jump gergood
+         else:
+           jump gerbad          
+label gergood:
+    $ persistent.end_02 = True
+    $ persistent.ending = "Ending 2"
+    o"Я голодна. Пойду, поищу на кухне что-нибудь съестное. Кажется, я видела, как несколько пауков пробегали там..."
+    c"На кухне? Мне стоит пойти с вами?"
+    o"Зачем?"
+    c"Гервас может быть все еще зол. Это может быть опасно."
+    o"Не волнуйся об этом. Он мой пес, в конце концов. Я буду жалким хозяином, если не смогу совладать с его злобой."
+    c"Будьте осторожны!"
+    o"Не волнуйся."
+    stop music fadeout 1.5
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    scene bg03 with aaa
+    show osstand at left with aaa
+    r"Гервас забился в самый темный угол кухни."
+    play music "ger_end.ogg"
+    o"Что ты там делаешь?"
+    g"..."
+    o"Гервас, я с тобой разговариваю."
+    show osmad1 at left with aaa
+    hide osstand with aaa
+    g"Не подходи. Иначе я тебя укушу."
+    show osmad2 at left with aaa
+    hide osmad1 with aaa
+    o"Я не повинуюсь приказам своего домашнего питомца."
+    g"Я сказал тебе!..."
+    hide osmad2 with aaa
+    o"Сиди спокойно!"
+    window hide dissolve
+    show geroute3 with dissolve
+    gsub"Отпусти меня! Надоедливая сучка! АРРРРГХ!"
+    osub"Нет. На этот раз я тебя не отпущу."
+    osub"Я была ужасным хозяином, и я понимаю, что именно поэтому ты  убегаешь от меня..."
+    pause 1
+    scene bg03 with dissolve
+    show geros1 at center with dissolve
+    window show
+    g"Ты быстро учишься, а?"
+    o"Прости меня, Гервас."
+    g"..."
+    o"Мне правда жаль!"
+    pause 1
+    show geros2 at center with dissolve
+    hide geros1 with aaa
+    g"...*шмыг*"
+    o"Гервас?.."
+    g"Мне в глаз попала соринка, вот и все...{w}*шмыг* {w}Много соринок..."
+    pause 0.3
+    hide geros2 with aaa
+    show osstand at left with aaa
+    show gerstand at right with aaa
+    g"Что с тобой стало, Оз? Раньше мы все время играли вместе, а потом ты вдруг превратилась в чудовище."
+    g"Даже чудовища будут поласковее тебя."
+    show osmad1 at left with aaa
+    o"Я стала мясником Уллы, Гервас. Я была мечом своего отца, щитом своего королевства. Я не могла позволить дать себе слабину."
+    o"Я нашла все свои трещинки и закрыла их трупами врагов, чтобы ежесекундно, каждый день я могла быть тем, чего ждали от меня — величайшем правителем Уллы."
+    show germad at right with aaa
+    hide gerstand with aaa
+    g"Мне не нужно было, чтобы ты стала мясником Уллы, или каким еще идиотским словом они тебя называли!"
+    show gerblush at right with aaa
+    hide germad with aaa
+    g"Я просто хотел, чтобы ты была... снова собой..."
+    show osmile1 at left with aaa
+    hide osmad1 with aaa
+    o"Гервас..."
+    show osstand at left with aaa
+    hide osmile1 with aaa
+    o"Я ненавидела себя. До сих пор продолжаю... Вот почему у меня в шее нож."
+    g"Ты имеешь в виду, что..."
+    show germad at right with aaa
+    hide gerblush with aaa
+    o"Да, я сама это сделала."
+    g"..."
+    show osmile2 at left with aaa
+    hide osstand with aaa
+    o"Но, похоже, мое время еще не пришло... И я этому даже немного рада."
+    o"Потому что теперь я могу наладить отношения со всеми вами..."
+    show osmile1 at left with aaa
+    hide osmile2 with aaa
+    o"...с тобой."
+    o"Так... ты пойдешь со мной снова?"
+    show gerangry at right with aaa
+    g"Если ты ударишь меня еще раз, я убью тебя..."
+    show osstand at left with aaa
+    hide osmile1 with aaa
+    o"Тогда я буду к этому готова, если это значит да."
+    show gerstand at right with aaa
+    hide gerangry with aaa
+    g"Значит."
+    o"Тогда пойдем! Я постараюсь исполнить твое желание."
+    show osmile2 at left with aaa
+    hide osstand with aaa
+    stop music fadeout 1.8
+    g"Какое?"
+    o"Твой гарем!"
+    show gerblush at right with aaa
+    hide germad with aaa
+    g"А... Он мне не нужен."
+    show oswut at left with aaa
+    o"А?"
+    scene black with dissolve
+    g"Мне нужна только ты."
+    scene black with dissolve
+    window hide dissolve
+    pause 2
+    play music "g_end.ogg"
+    scene gergend with dissolve
+    pause 5
+    jump lolcredits
+    
+label gerbad:
+     o"Я голодна. Пойду, поищу на кухне что-нибудь съестное. Кажется, я видела, как несколько пауков пробегали там..."
+     c"На кухне? Мне стоит пойти с вами?"
+     o"Зачем?"
+     c"Гервас может быть все еще зол. Это может быть опасно."
+     o"Не волнуйся об этом. Он мой пес, в конце концов. Я буду жалким хозяином, если не смогу совладать с его злобой."
+     c"Будьте осторожны!"
+     o"Я же сказала, не волнуйся. Со мной все будет в порядке!"
+     scene black with dissolve
+     $ renpy.play('foot1.wav')
+     pause 3
+     scene bg03 with aaa
+     show osstand at left with aaa
+     o"Гервас, ты здесь?"
+     r"Оз видит его, дрожащего в углу."
+     g"Н-не подходи!.."
+     hide osstand with aaa
+     o"Что ты... нечего мне тут приказывать..."
+     g"Нет!"
+     o"Сиди спокойно, псина эдакая!"
+     g"Я СКАЗАЛ ОТОЙДИ... ПРОКЛЯТЬЕ!"
+     scene gbadend with flashbulb3
+     $ renpy.play('swordhit.wav')
+     window hide 
+     osub"Ах..."
+     gsub"...Оз?"
+     gsub"Оз! Очнись...ОЗ!"
+     gsub"Черт побери..." 
+     scene black with dissolve
+     g"Я убил ее."
+     stop music fadeout 1.5
+     pause 2
+     g"..."
+     c"Гервас?"
+     g"К-Корвус!"
+     c"...что ты на меня так смотришь?"
+     g"Я-Я просто устал, вот и все..."
+     c"Ладно, ты не видел госпожу Оз? Она сказала, что пойдет сюда, поискать что-нибудь съестное..."
+     g"Ага, я видел ее. Она сказала, что пойдет вперед, ко дворцу. О-она передавала, чтобы ты шел следом." 
+     c"Эээ? Странно. Она говорила, что мы покинем это место вместе. Она сняла барьер, ты в курсе?"
+     g"...{color=#adc6ba}{i}Вместе? Быть не может-{/i}{/color}"
+     c"Тогда я пошел. Ты тоже не задерживайся, хорошо?"
+     g"Конечно."
+     g"{color=#adc6ba}{i}Когда он не обнаружит её во дворце, то вернется...{/i}{/color}"
+     g"{color=#adc6ba}{i}Мне конец, твою мать. У меня нет времени прятать труп.{/i}{/color}"
+     g"{color=#adc6ba}{i}Если бы только я не был так голоден... Я бы смог мыслить яснее...{/i}{/color}"
+     g"Если бы я... не был голоден..."
+     window hide dissolve
+     scene black with dissolve
+     pause 2
+     play music "b_end.ogg"
+     scene gerbend with dissolve
+     pause 5
+     jump lolcredits
+label lilroutefinal:
+     if lilja == 5:
+           jump lilgood
+     else:
+           jump lilbad 
+label lilgood:
+    $ persistent.ending = "Ending 3"
+    $ persistent.end_03 = True
+    o"Я пойду на балкон. Сейчас почти время заката."
+    c"Но моя госпожа, разве вы не боитесь высоты?"
+    o"Думаю, я начинаю к ней привыкать..."
+    c"{color=#adc6ba}{i}Что, за один день?!{/i}{/color}"
+    c"Будьте осторожны на лестнице."
+    o"Хорошо."
+    stop music fadeout 1.5
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    scene bg04 with aaa
+    show lilstand at right with aaa
+    show osstand at left with aaa
+    pause 1
+    l"Ты не задавалась вопросом..."
+    l"...что за книга в моих руках?"
+    o"Я как раз хотела спросить."
+    l"В этой книге одни пустые страницы... за исключением первой."
+    l"Там написан вопрос. Вопрос, на который я не в состоянии ответить."
+    o"Что за вопрос?"
+    l"'Кто ты?'"
+    l"Думаю, я должен написать ответ на этих пустых страницах, но..."
+    l"Кто я?"
+    l"Я... больше не знаю этого."
+    l"Я держу эту книгу, чтобы, когда я найду ответ... записать его."
+    o"Лилья... нам пора уходить из этой башни."
+    l"..."
+    l"Ты можешь идти. Я не стану завидовать тебе или твоей пташке."
+    l"Может, мне суждено было кончить так. Я останусь здесь и прочту все эти книги."
+    o"Не сдавайся так быстро! Неужели ты не хочешь увидеть своих друзей?"
+    l"У меня нет друзей..."
+    show oswut at left with aaa
+    o"А?"
+    l"Никто не хочет дружить с таким маниакальным меланхоликом. Все божества избегают меня." 
+    hide oswut with aaa
+    l"Хотел бы я иметь девушку." 
+    show osmile2 at left with aaa
+    o"*хихикает*"
+    l"Знаешь, это совсем не смешно."
+    show osmile1 at left with aaa
+    hide osmile2 with aaa
+    o"Прости... просто..."
+    o"Ты говоришь, как конченый неудачник."
+    l"..."
+    hide osmile1 with aaa
+    o"Но я не представляю тебя таким. Ты не похож на неудачника."
+    o"Как ты и сказал ранее {i}ты{/i} бесподобен."
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    l"Пфф-{w}ХАХАХАХАХАХАХАХА!"
+    play music"lilja_theme.ogg"
+    l"А у тебя действительно кишка не тонка!"
+    show lilstand at right with aaa
+    hide lilsmile with aaa
+    c"Госпожа Оз!.."
+    l"Тебе следует стать моей подружкой."
+    show oswut at left with aaa
+    o"Э?"
+    show corsur at left with aaa
+    c"ЧТОООО?!"
+    show lilsmile at right with aaa
+    hide lilstand with aaa
+    l"ХАХАХАХАХАХАХА! Оз, ты сняла барьер?"
+    show lilstand at right with aaa
+    hide lilsmile with aaa
+    o"Д-да, сняла. А что?"
+    l"Пришло время попращаться."
+    o"А?"
+    l"Я использую оставшуюся у меня силу, чтобы вернуться на небеса."
+    show osooo at left with aaa
+    o"Нет! А если у тебя не получится?"
+    l"Лучше попытаться, чем жалеть об этом всю оставшуюся жизнь."
+    l"Прости, но я никогда не пойму, что хорошего в жизни смертного."
+    o"..."
+    l"ИТАК!"
+    hide lilstand  with flashbulb
+    show lilnstand at right with aaa
+    c"ПРЕСВЯТАЯ..."
+    show osblussh at left with aaa
+    hide corsur
+    show corblush at left with aaa
+    o"!!!"
+    hide corblush with aaa
+    show coros1 at left with aaa
+    hide osblussh with aaa
+    hide osstand with aaa
+    hide osooo with aaa
+    hide oswut with aaa
+    c"Тебе обязательно было раздеваться?!"
+    l"Да. Там, откуда я пришел, это зовется фансервисом."
+    c"..."
+    show coros2 at left with aaa
+    hide coros1 with aaa
+    o"А как же книга?"
+    show lilnsmile at right with aaa
+    hide lilnstand 
+    l"К чёрту книгу."
+    l"Я уже достаточно повеселился."
+    window hide dissolve
+    show lilroute2 with dissolve
+    osub"..."
+    osub"Думаешь, мы его еще встретим?"
+    csub"Кто знает, моя госпожа."
+    csub"Я лишь надеюсь, что когда-нибудь он вновь посетит нас... В штанах."
+    stop music fadeout 1.5
+    scene black with dissolve
+    window hide dissolve
+    pause 2
+    play music "g_end.ogg"
+    scene lilgend with dissolve
+    pause 5
+    jump lolcredits
+   
+label lilbad:
+    scene black with dissolve
+    $ renpy.play('foot1.wav')
+    pause 3
+    scene bg04 with aaa
+    show osstand at left with aaa
+    show lilstand at right with aaa
+    o"..."
+    o"Как красиво."
+    l"Правда?"
+    o"Да."
+    l"Но красота бесполезна."
+    o"Я знаю."
+    show oscry at left with dissolve
+    l"Почему ты плачешь?"
+    o"Потому что я лгала. Я не собираюсь уходить из этой башни со всеми вами."
+    stop music fadeout 1.5
+    o"По крайней мере через дверь."
+    scene black with aaa 
+    $ renpy.play('run.wav')
+    l"Ты..."
+    $ renpy.play('wind2.mp3')
+    window hide dissolve
+    scene lbadend with flashbulb2
+    pause 3
+    scene black with dissolve
+    pause 2
+    play music "b_end.ogg"
+    scene lilbend with dissolve
+    pause 5
+    jump lolcredits
+    
+label coroutefinal:
+    stop music fadeout 1.5
+    $ persistent.ending = "Ending 4"
+    $ persistent.end_04 = True 
+    show osooo at left with aaa
+    o"Я-я хотела сказать тебе кое-что."
+    play music "cor_theme.ogg"
+    hide osooo with aaa
+    c"Мм? Что, моя госпожа?"
+    o"Я..." 
+    c"???"
+    c"Моя госпожа, могу я попросить вас об одолжении?"
+    o"Да, почему бы и нет."
+    c"Прошу, вытащите этот нож из своей шеи..."
+    o"Ах. Нож, точно."
+    hide osstand with aaa
+    show osknife at left with dissolve
+    o"Нгх..."
+    c"Госпожа Оз!"
+    window hide aaa
+    scene black with aaa
+    $ renpy.play('swordhit.wav')
+    scene coroute2a with flashbulb
+    pause 1
+    show coroute2b with dissolve
+    osub"Э?"
+    pause 1
+    window show dissolve
+    scene bg01 with dissolve
+    show oskstand at left with aaa
+    show corhstand at right with dissolve
+    show snowblossom
+    o"!!!" 
+    show corhshout at right with aaa
+    hide corhstand with aaa
+    c"Моя госпожа! Вы в порядке?"
+    show oswut at left with aaa
+    o"Это лицо... ты Корвус?"
+    show corhsmile1 at right with aaa
+    hide corhshout with aaa
+    c"Что, конечно же. А, вы никогда не видели меня таким, верно?"
+    hide oswut with aaa
+    o"Нет..."
+    c"Господин Скедел запретил мне показывать вам свою истинную форму."
+    o"Почему?"
+    c"Не знаю, моя госпожа."
+    show osksmile2 at left with aaa
+    hide oskstand with aaa
+    o"Ты симпатичный!"
+    show corhblush2 at right with aaa
+    hide corhsmile1 with aaa
+    c"Э?"
+    show oskblush at left with aaa
+    hide osksmile2 with aaa
+    o"Я-я сказала это вслух?"
+    c"Д-да..."
+    r"Несколько секунд прошло в неловкой тишине."
+    pause 1
+    show corhsmile2 at right with dissolve
+    hide corhblush2 with aaa
+    c"Что вы хотели мне сказать?"
+    o"Т-ты хотел бы... пойти со мной во вдорец?"
+    c"Но... я и так там живу."
+    show oskstand at left with aaa
+    hide oskblush with aaa
+    o"Не в качестве слуги, Корвус."
+    o"В качестве равного."
+    show corhsur at right with aaa
+    hide corhsmile2 with aaa
+    c"Моя госпожа... Я очень польщен, но господин Скедел не допустит такого."
+    show corhstand at right with aaa
+    hide corhsur with aaa
+    o"Я поговорю с ним. Не могу же я всю жизнь ему подчиняться, правда?"
+    c"Моя госпожа!.."
+    show corhgah at right with aaa
+    hide corhstand
+    c"Прошу... остановитесь. Все, что вы делаете, так это даете мне ложную надежду."
+    o"Почему ты так говоришь?"
+    c"...{color=#adc6ba}{i}Нужно ли мне сказать ей?{/i}{/color}"
+    show corhstand at right with aaa
+    hide corhgah with aaa
+    hide oskstand with aaa
+    show osehh at center with aaa
+    o"Корвус? Ты дрожишь.."
+    c"..."
+    c"П-прошу простить меня..."
+    c"Но я больше не могу сдерживаться."
+    window hide dissolve
+    scene coroute2 with dissolve
+    osub"."
+    osub".."
+    osub"..."
+    pause 2
+    window show dissolve
+    scene bg01 with dissolve
+    show snowblossom
+    show coros3 at center with dissolve
+    o"!"
+    c"Я люблю вас."
+    o"Что ты делаешь?! ПРИДУРОК!.."
+    hide coros3 with flashbulb3
+    $ renpy.play('punch.wav')
+    with vpunch
+    show oskblush at left with aaa
+    show corhit at right with aaa
+    c"Ау!"
+    o"Это был мой первый..."
+    show corhblush2 at right with aaa
+    hide corhit with aaa
+    c"Ваш первый?!.."
+    hide corhblush2 with aaa
+    show corhgasp at right with aaa
+    c"Г-Г-Госпожа Оз, мне так жаль... я не это имел в виду... прошу простить своего никчемного слугу!"
+    o"Прекрати."
+    show oskstand at left with aaa
+    hide oskblush with aaa
+    c"Ха?"
+    stop music fadeout 1.5
+    o"Я же сказала. Мы теперь равны."
+    c"Моя госпожа..."
+    hide oskstand with aaa
+    show oskblush2 at left with dissolve
+    o"Вот, возьми мою руку."
+    hide corhgasp with aaa
+    show corhblush at right with dissolve
+    c"Да... моя госпожа."
+    scene black with dissolve
+    window hide dissolve
+    pause 2
+    play music "g_end.ogg"
+    scene corend with dissolve
+    pause 5
+
+label lolcredits:
+    scene black with dissolve
+    scene splash1 with aaa
+    show cr01 with dissolve
+    pause 3
+    hide cr01 with aaa
+    show cr01a with dissolve
+    pause 3
+    hide cr01a with aaa
+    show cr02 with dissolve
+    pause 4
+    hide cr02 with aaa
+    show cr03 with dissolve
+    pause 4
+    hide cr03 with aaa
+    show cr04 with dissolve
+    pause 6
+    hide cr04 with aaa
+    show cr05 with dissolve
+    pause 6
+    hide cr05 with aaa
+    show cr06 with dissolve
+    pause 5
+    hide cr06 with aaa
+    stop music fadeout 1.5
+    pause 2
+    scene black with dissolve   
+    if  persistent.end_01 and persistent.end_02 and persistent.end_03 and persistent.end_04:
+        jump extra
+    else:
+       return
+     
+label extra:
+    scene black with dissolve
+    stop music fadeout 1.5
+    pause 1
+    play music"ecc_theme.ogg"
+    scene bg05 with dissolve
+    l"Н-Не могу поверить, у меня получилось..."
+    show lilnstand at right with dissolve
+    l"Такое ощущение, будто я путешествовал много лет.."
+    l"..."
+    l"Это место не запомнилось мне таким... скучным."
+    r"Ах!"
+    l"?"
+    l"О, это ты, Эччин."
+    show eccblush at left with dissolve
+    e"Во имя любви к Господу, Лилья, прикрой свое бесстыдство."
+    l"Я не виноват, что ты настолько мелкая, что твое лицо оказывается напротив моей промежности."
+    hide eccblush with aaa
+    show eccmad at left with aaa
+    e"Что.. ты..."
+    l"Соскучилась по мне?"
+    show eccstand at left with aaa
+    hide eccmad with aaa
+    e"А ты куда-то уходил?"
+    r"Тишина."
+    l"Да... Меня не было четыре года..."
+    e"Ах. Я и не заметила."
+    r"Тишина."
+    l"Вот как. Куда бы я не пошел... везде меня ждет собственная депрессия."
+    e"Да ладно тебе, чувак. Взбодрись немного."
+    e"О! Я знаю, что тебя взбодрит!"
+    r"Она достает из кармана фото."
+    l"Что это?"
+    e"Хехехе, это я в купальнике!"
+    l"Ни капельки не возбуждает. Ты ужасная богиня фансервиса."
+    show eccmad at left with aaa
+    hide eccstand with aaa
+    e"Ч-Ч-Ч-ЧЕГО?!"
+    l"Знаешь, что? Нам надо махнуться работами. Твое фото побуждает меня покончить с собой."
+    e"ЛИЛЬЯ ТЫ УБЛЮ..."
+    l"Тебе не хватает страсти! Чувственности! Какой кретин доверил тебе эту работу..."
+    l"Я покажу тебе..."
+    hide lilnstand with aaa
+    hide eccmad with aaa
+    show fs with flashbulb
+    pause 2
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    e"Какого хрена?!"
+label fanservice:
+    
+    menu:
+        
+        "Предатель — старшеклассник":
+           jump gatr
+        "Правило номер 63":
+           jump r63
+        "Фансервис Оз I":
+            jump fso1
+        "Прически":
+           jump hcuts
+        "Фансервис Оз II":
+            jump fs02
+        "Панцушот (это не то, о чем вы подумали)":
+            jump pshot
+        "На пляже":
+            jump beach
+        "УМОЛЯЮ, ХВАТИТ":
+               jump exitt
+               
+label gatr:
+    scene black with dissolve
+    window hide
+    show fn03a with dissolve
+    pause 1
+    cq"Оба-на! Что это?!"
+    lq"Готов поспорить, так мы будем намного популярнее."
+    vq"Почему я должен всем вам одалживать свои очки?"
+    lq"Потому что ты просто сборище всяких фетишей."
+    vq"Эээ?!"
+    scene fn03b with dissolve
+    window hide
+    pause 1
+    cq"ГЬЯХАХАХАХАХАХА!"
+    vq"Прекрасный способ выглядеть некруто."
+    lq"..."
+    gq"Что?! Я ничего не вижу."
+    scene fn03c with dissolve
+    window hide
+    pause 1
+    gq"Вау! Я выгляжу таким... умным!"
+    vq"Нет."
+    cq"Гахахаха... Нет."
+    scene fn03d with dissolve
+    window hide
+    pause 1
+    vq"Н-не то, чтобы вы мне нравились или типо того..."
+    cq"Шшш! Госпожа Оз смотрит! Просто улыбнись... Хе хе хе..."
+    oq"..."
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+    
+label  r63:
+    scene black with dissolve
+    vq"Что за правило номер 63?"
+    lq"Всегда существует женская версия мужского персонажа..."
+    vq"Из этой идеи точно ничего хорошего не выйдет..."
+    scene fn04a with dissolve
+    window hide
+    pause 1
+    cq"О МОЙ БОГ..."
+    gq"Переключите этот слайд, пожалуйста!"
+    cq"*шмыг*"
+    vq"Ты удивительно милый в виде девчонки..."
+    gq"Хахахаха, Вогезу нравятся девушки его размера."
+    vq"Заткнись!"
+    scene fn04b with dissolve
+    window hide
+    pause 1
+    cq"Агх."
+    gq"Черт! Это просто грешно быть настолько сексуальной."
+    vq"Должно быть неважно, какого ты пола Гервас. Ты всегда будешь тупым."
+    cq"ГЬЯХАХА!"
+    gq"З-Заткнитесь, вы..."
+    scene fn04c with dissolve
+    window hide
+    pause 1
+    cq"..."
+    vq"..."
+    gq"Я не понял."
+    scene fn04d with dissolve
+    window hide
+    pause 1
+    cq"Ч..."
+    vq"...Т..."
+    gq"...О!"
+    lq"Именно этого я и ожидал."
+    scene fn04e with dissolve
+    window hide
+    pause 1
+    cq"М-Моя госпожа?!"
+    gq"Поверить не могу, что она выглядит брутальнее нас всех."
+    vq"Я знал, что из этого ничего хорошего не выйдет."
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+    
+label fso1:
+    scene black with dissolve
+    window hide dissolve
+    scene fn01 with dissolve
+    pause 2
+    cq"..."
+    vq"..."
+    gq"Кажется, я вижу её трусики..."
+    cq"Ты только об этом и можешь думать? Трусики?"
+    vq"А как же."
+    gq"ДА ЛАДНО! Только не говорите, что сами не смотрите! Вы вообще парни?"
+    vq"Это не значит, что нужно думать одним только местом."
+    cq"Я согласен с мальчиком."
+    lq"Здесь нечего стыдиться. Мир крутится вокруг секса."
+    vq"Ты тоже смотрел, да?"
+    lq"Да..."
+    oq"ЭЙ, ПАРНИ! Вы знали, что я одобрила новый закон?"
+    oq"Каждый извращенец, пойманный на месте преступления, будет КАСТРИРОВАН!"
+    oq"Вы слышали меня?!"
+    pause 1
+    oq"Э-эй, это была просто шутка! Ха... ха-ха..."
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+    
+label hcuts:
+    scene black with dissolve
+    scene fn05 with dissolve
+    window hide
+    pause 1
+    cq"Черт"
+    vq"Чееееррррт"
+    gq"ЧЕЕЕЕРРРРТ"
+    lq"АААААААААААААААААХ"
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+    
+label fs02:
+    scene black with dissolve
+    scene fn02 with dissolve
+    window hide
+    pause 1
+    cq"М-м-м-моя госпожа!"
+    gq"Конфетка!"
+    cq"ЗАТКНИСЬ, ЧЕРТОВ ИЗВРАЩЕНЕЦ! Я не позволю тебе так пялиться на тело моей госпожи!"
+    gq"Какое еще тело?.. Её волосы похожи на сахарную вату."
+    cq"..."
+    gq"А ты у нас испорченная птичка..."
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+
+label pshot:
+  scene black with dissolve
+  scene fn06 with dissolve
+  window hide
+  pause 1
+  cq"А-А я ничего другого и не ждал!"
+  vq"И я..."
+  gq"Врёте..."
+  scene black with dissolve
+  show bg05 with aaa
+  show lilnstand at right with aaa
+  show eccstand at left with aaa
+  jump fanservice
+  
+  
+label beach:
+    scene black with dissolve
+    scene fn07 with dissolve
+    window hide
+    pause 1
+    cq"Лала"
+    vq"Лалалала"
+    gq"ЛААААААААА"
+    lq"ЛААААААААААААААЛА"
+    scene black with dissolve
+    show bg05 with aaa
+    show lilnstand at right with aaa
+    show eccstand at left with aaa
+    jump fanservice
+    
+label exitt:
+    l"Вы правда хотите покинуть нас? Вы не сможете увидеть все это после того, как уйдете!"
+    e"Жалко-то как, а?"
+    menu:
+        
+        "да":
+            l"Эх, ну, ничего не поделаешь."
+            l"Что ж, спасибо, что потратили на нас драгоценные минуты своей смертной жизни." 
+            l"Покровитель игр будет доволен вашим подношением."
+            l"Надеюсь, вам понравилась эта бесподобная игра!"
+            e"Хех. Это точно..."
+            hide lilnstand with aaa
+            show lilbye at right with aaa
+            l"ПОКА!"
+            window hide dissolve
+            scene black with dissolve
+            stop music fadeout 1.5
+            pause 1
+            return
+        "Нет":
+            l"Ах! Прекрасно."
+            jump fanservice
+
+</nowiki>
+</poem>
